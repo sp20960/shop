@@ -14,7 +14,7 @@ print_r( $_SESSION);
     $_SESSION['user']['transactionId'] = $transactionId;
     
 
-
+    //IMPORTANT REFACTO THIS WHIT RETURNING VALUE ORDER NUMBER
     $sqlInsert = "INSERT INTO `023_orders` (`orderNumber`, `customerId`, `productId`, `quantity`, `productUnitPrice`, `insertedOn`, `paymentId`, `transactionId`, `addressId`, `shippingId`)
             SELECT 
             (SELECT MAX(orderNumber) + 1 FROM `023_orders`), 

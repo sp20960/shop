@@ -1,59 +1,5 @@
 <?php
-session_start();
-
-$errors = [];
-
-if (isset($_POST['submit'])) {
-  // INITIALIZE SESSION
-  session_regenerate_id();
-
-  // FETCH POST INFORMATION
-  $email = $_POST['email'];
-  $pwd = $_POST['pwd'];
-
-  if (empty($pwd)) {
-    $errors['pwd'] = "Este campo es obligatorio!";
-  }
-
-  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors['email'] = "Email incorrecto!";
-  }
-
-  if (empty($email)) {
-    $errors['email'] = "Este campo es obligatorio!";
-  }
-
-  if (!array_filter($errors)) {
-    // CREATE QUERY
-
-    $sql = "SELECT * FROM `023_customers` WHERE email = '$email' AND pwd = '$pwd';";
-
-    // OPEN CONNECTION
-    require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/config/db_connect.php');
-
-    // EXECUTE QUERY AND SAVE RESULT
-    $result = mysqli_query($connect, $sql);
-
-    $user = mysqli_fetch_assoc($result);
-    // CHECK IF CUSTOMER EXISTS
-    if ($user) {
-      $_SESSION['user'] = $user;
-      // REDIRECT USER TO THE ADMINISTRATOR PANEL
-      header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/backend/index.php');
-    } else {
-      // REDIRECT USER TO THE LOGIN
-      $errors['fail'] = "Email o contraseña incorrecto!";
-    }
-  }
-}
-
-if (isset($_SESSION['user'])) {
-  if ($_SESSION['user']['rol'] == "customer") {
-    header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/views/profile.html');
-  } else if ($_SESSION['user']['rol'] == "admin") {
-    header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/backend/');
-  }
-}
+  require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/db/db_login.php');
 ?>
 
 <!DOCTYPE html>
@@ -124,7 +70,14 @@ if (isset($_SESSION['user'])) {
             <label for="email" class="block text-sm/6 font-medium text-gray-100">Email address</label>
             <div class="mt-2">
               <input id="email" type="email" name="email" required="email" class="block rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-accent sm:text-sm/6 sm:w-90" />
+              <?php 
+                    if(isset($errors["email"])){
+                        echo '<small class="text-red-500">'.$errors["email"].'</small>';
+                        unset($errors["email"]);
+                    }
+                ?>
             </div>
+            
           </div>
 
           <div>
@@ -133,6 +86,18 @@ if (isset($_SESSION['user'])) {
             </div>
             <div class="mt-2">
               <input id="password" type="password" name="pwd" required autocomplete="current-password" class="block rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-accent sm:text-sm/6 sm:w-90" />
+              <?php 
+                    if(isset($errors["pwd"])){
+                        echo '<small class="text-red-500">'.$errors["pwd"].'</small>';
+                        unset($errors["pwd"]);
+                    }
+                ?>
+                <?php 
+                    if(isset($errors["fail"])){
+                        echo '<small class="text-red-500">'.$errors["fail"].'</small>';
+                        unset($errors["fail"]);
+                    }
+                ?>
             </div>
             <div class="text-sm pt-2">
                 <a href="#" class="font-semibold text-text underline hover:opacity-40">Has olvidado la contraseña?</a>

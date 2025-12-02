@@ -22,6 +22,8 @@ if (isset($_POST['updateCustomer'])) {
   $result = mysqli_query($connect, $sql);
   $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
   $_SESSION['user'] = $user[0];
+
+  mysqli_close($connect);
 }
 
 if (isset($_POST['updateProfileImage'])) {

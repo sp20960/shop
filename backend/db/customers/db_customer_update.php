@@ -17,7 +17,13 @@
                 WHERE customerId = $customerId;";
         include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
         mysqli_query($connect, $sql);
-        mysqli_close($connect);
+
+      $sql = "SELECT * FROM `023_customers` WHERE customerId=$customerId;";
+      $result = mysqli_query($connect, $sql);
+      $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+      $_SESSION['user'] = $user[0];
+
+      mysqli_close($connect);
     }
 
     if (isset($_POST['updateProfileImage'])){

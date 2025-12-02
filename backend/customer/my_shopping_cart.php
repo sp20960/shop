@@ -5,7 +5,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shopping_cart/d
 $_SESSION['user']['insertOrder'] = true;
 ?>
 
-<main class="flex gap-5 bg-[#f5f5dc] p-10 w-full">
+<main class="flex gap-5 bg-secondary p-10 w-full">
     <div class="w-full flex flex-row gap-5">
         <div class="flex flex-col justify-center gap-5 w-[50%]">
         <?php

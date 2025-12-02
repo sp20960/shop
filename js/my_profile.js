@@ -93,6 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
                                     <input type="text" id="city" name="city" placeholder="City*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-50" value="${address.city}" required>
                                     <input type="number" id="zip-code" name="zipCode" placeholder="ZIP code*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-30" minlength="5" maxlength="5" value="${address.zipCode}" required>
                                 </div>
+                                <div class="flex gap-2">
+                                  <input type="checkbox" name="isDefault" id="is-default-address-${address.addressId}>" ${address.isDefault == 1 ? "checked" : ""}>
+                                  <label for="is-default-address-${address.addressId}" class="font-latoregular text-text">Añadir esta dirección por defecto</label>
+                                </div>
                                 <div class="flex justify-center gap-5">
                                     <button name="deleteAddress" class="bg-red-600 text-text font-latobold px-10 py-2 cursor-pointer hover:opacity-60 rounded-sm" type="submit">Eliminar</button>
                                     <button name="updateAddress" class="bg-btn text-text font-latobold px-10 py-2 cursor-pointer hover:opacity-60 rounded-sm" type="submit">Guardar</button>

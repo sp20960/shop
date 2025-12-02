@@ -1,6 +1,6 @@
-@import "variables";
-@import "mixin";
-@import "common";
+@use "variables" as *;
+@use "mixin" as *;
+@use "common" as *;
 
 main {
   padding-top: 120px;
@@ -29,7 +29,15 @@ main {
       gap: 30px;
 
       .shopping-cart-product {
-        @include product-card($secondary);
+        @include product-card($secondary, 1.25rem, 100px);
+
+        @media (min-width: 810px) and (max-width: 1090px){
+          @include product-card($secondary, 1.7rem, 150px);
+        }   
+
+        @media (min-width: 1100px){
+          @include product-card($secondary, 2rem, 170px);
+        }
       }
 
       @media (min-width: 1100px) {

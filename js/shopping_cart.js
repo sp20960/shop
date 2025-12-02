@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkLocalStorage(){
       if(productsToAdd){
         listShoppingCart.innerHTML = ""
-
         for(const product of productsToAdd.products){
             loadShoppingCart(product);
         } 

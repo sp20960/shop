@@ -12,7 +12,7 @@ if(isset($_SESSION['user'])){
 
     $userData = ['userInfo' => $userData];
     
-    $sql = "SELECT ad.* FROM `023_addresses` AS ad
+    $sql = "SELECT ad.*, ca.* FROM `023_addresses` AS ad
             INNER JOIN `023_customers_addresses` AS ca
             ON ad.addressId = ca.addressId
             WHERE ca.customerId = $customerId";;

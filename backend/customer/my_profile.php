@@ -1,13 +1,10 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/admin_header.php');
 
-if(!isset($_SESSION['user']['formAction'])){
     require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/customers/db_address_insert.php');
     require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/customers/db_address_update.php');
     require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/customers/db_customer_update.php');
-} else {
-    unset($_SESSION['user']['formAction']);
-}
+
 
 
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/customers_functions.php');
@@ -112,6 +109,10 @@ $userData = returnCustomerData($_SESSION['user']['customerId']);
                                     </select>
                                     <input type="text" id="city" name="city" placeholder="City*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-50" value="<?= $addresses[$i]['city'] ?>" required>
                                     <input type="number" id="zip-code" name="zipCode" placeholder="ZIP code*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-30" minlength="5" maxlength="5" value="<?= $addresses[$i]['zipCode'] ?>" required>
+                                </div>
+                                <div class="flex gap-2">
+                                  <input type="checkbox" name="isDefault" id="is-default-address-<?= $addresses[$i]['addressId'] ?>" <?= ($addresses[$i]['isDefault'] == '1' ? "checked" : "") ?>>
+                                  <label for="is-default-address-<?= $addresses[$i]['addressId'] ?>" class="font-latoregular text-text">Añadir esta dirección por defecto</label>
                                 </div>
                                 <div class="flex justify-center gap-5">
                                     <button name="deleteAddress" class="bg-red-600 text-text font-latobold px-10 py-2 cursor-pointer hover:opacity-60 rounded-sm" type="submit">Eliminar</button>

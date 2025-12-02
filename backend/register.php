@@ -1,3 +1,8 @@
+<?php 
+  $errors = [];
+  require $_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/db/db_register.php';
+  
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,11 +67,14 @@
       </div>
 
       <div class="flex flex-col items-center mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form action="login.php" method="POST" class="space-y-6">
+        <form action="register.php" method="POST" class="space-y-6">
           <div>
             <label for="email" class="block text-sm/6 font-medium text-gray-100">Correo electrónico</label>
             <div class="mt-2">
               <input id="email" type="email" name="email" required="email" class="block rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-accent sm:text-sm/6 sm:w-90" />
+              <?php if(isset($errors['email'])):?>
+                <small class="font-latobold text-red-400"><?= $errors['email'] ?></small>
+              <?php endif ?>
             </div>
           </div>
 
@@ -76,21 +84,30 @@
             </div>
             <div class="mt-2">
               <input id="password" type="password" name="pwd" required autocomplete="current-password" class="block rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-accent sm:text-sm/6 sm:w-90" />
+              <?php if(isset($errors['pwd'])):?>
+                <small class="font-latobold text-red-400"><?= $errors['pwd'] ?></small>
+              <?php endif ?>
             </div>
           </div>
 
           <div>
             <div class="flex items-center justify-between">
-              <label for="password" class="block text-sm/6 font-medium text-gray-100">Confirmar contraseña</label>
+              <label for="re-password" class="block text-sm/6 font-medium text-gray-100">Confirmar contraseña</label>
             </div>
             <div class="mt-2">
-              <input id="password" type="password" name="pwd" required autocomplete="current-password" class="block rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-accent sm:text-sm/6 sm:w-90" />
+              <input id="re-password" type="re-password" name="rePwd" required autocomplete="current-password" class="block rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-accent sm:text-sm/6 sm:w-90" />
+              <?php if(isset($errors['rePwd'])):?>
+                <small class="font-latobold text-red-400"><?= $errors['rePwd'] ?></small>
+              <?php endif ?>
             </div>
           </div>
 
           <div>
-            <button type="submit" name="submit" class="flex w-full justify-center rounded-md bg-accent px-3 py-1.5 text-sm/6 font-semibold text-white hover:opacity-40 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">Registrar</button>
+            <button type="submit" name="register" class="flex w-full justify-center rounded-md bg-accent px-3 py-1.5 text-sm/6 font-semibold text-white hover:opacity-40 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">Registrar</button>
           </div>
+          <?php if(isset($errors['db'])):?>
+            <small class="font-latobold text-red-400"><?= $errors['db'] ?></small>
+          <?php endif ?>
         </form>
 
         <p class="mt-10 text-center text-sm/6 text-gray-400">
@@ -100,6 +117,7 @@
       </div>
     </div>
   </main>
+  <script src="../js/common.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 @mixin button($bg-color, $text-color) {
     background-color: $bg-color;
     border-radius: 10px;
@@ -16,7 +18,7 @@
     }
 }
 
-@mixin product-card($bg-color) {
+@mixin product-card($bg-color, $h3font-size, $img-size) {
     background-color: $bg-color;
     border-radius: 10px;
     box-shadow: #0000003d 0px 3px 8px;
@@ -26,15 +28,7 @@
 
     >div{
         img{
-            width: 100px;
-
-            @media (min-width: 810px) and (max-width: 1090px){
-                width: 150px;
-            }
-
-            @media (min-width: 1100px){
-                width: 170px;
-            }
+            width: $img-size;
         }
     }
 
@@ -48,15 +42,7 @@
             font-family: $latobold;
 
             h3 {
-                font-size: 1.25rem;
-
-                @media (min-width: 810px) and (max-width: 1090px){
-                    font-size: 1.7rem;
-                }   
-
-                @media (min-width: 1100px){
-                    font-size: 2rem;
-                }
+                font-size: $h3font-size;
             }
 
             small {

@@ -48,7 +48,5 @@ if(isset($_SESSION['user']['transactionId'])):
 </main>
 <?php 
   unset($_SESSION['user']['transactionid']);
-
 endif
-
 ?>

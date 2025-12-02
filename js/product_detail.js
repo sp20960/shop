@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const response = await fetch(urlProductsEndpoint);
       const products = await response.json();
-      console.log(products);
       showRelatedProducts(products);
     } catch (error) {
       listProducts.innerHTML = "<h1>¡Ha habido un problema cargando los productos!</h1>";
@@ -106,6 +105,5 @@ document.addEventListener('DOMContentLoaded', () => {
       image.classList.add('active-image')
     });
   });
-  console.log("object");
   loadRelatedProducts();
 })

@@ -33,7 +33,7 @@
   }
   
   .dropdown-content-desktop{
-    @apply lg:px-5 lg:py-2.5 lg:flex-col lg:gap-[10px] lg:absolute lg:bottom-0 lg:translate-x-[9  0%] lg:translate-y-[60%] lg:border lg:rounded-lg lg:border-accent lg:bg-primary/80
+    @apply lg:px-5 lg:py-2.5 lg:flex-col lg:gap-[10px] lg:absolute lg:bottom-0 lg:translate-x-[90%] lg:translate-y-[60%] lg:border lg:rounded-lg lg:border-accent lg:bg-primary/80
   }
 
   .grid-element {
