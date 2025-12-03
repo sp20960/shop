@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
       showFilteredProducts();
       return;
     }
-
     try {
       const response = await fetch("/student023/shop/backend/endpoints/db_product_search.php?productName=" + userFilter);
       const products = await response.json();

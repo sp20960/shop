@@ -46,8 +46,12 @@ if (isset($_POST['submit'])) {
     // CHECK IF CUSTOMER EXISTS
     if ($user) {
       $_SESSION['user'] = $user;
+      if($_SESSION['user']['rol'] == 'admin'){
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/backend/index.php');        
+      }else{
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/index.html');
+      }
       // REDIRECT USER TO THE ADMINISTRATOR PANEL
-      header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/index.html');
     } else {
       // REDIRECT USER TO THE LOGIN
       $errors['fail'] = "Email o contraseña incorrecto!";

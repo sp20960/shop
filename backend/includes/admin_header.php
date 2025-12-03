@@ -16,7 +16,7 @@ if (isset($_POST['logout']) && isset($_SESSION['user'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de administracion</title>
     <link href="/student023/shop/assets/fontawesome/css/fontawesome.css" rel="stylesheet">
-    <link href="/student023/shop/assets/fontawesome/css/solid.css" rel="stylesheet">
+    <link href="/student023/shop/assets/fontawesome/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="/student023/shop/css/style.css">
     <link rel="shortcut icon" href="/student023/shop/assets/images/brand/favicon.png" type="image/x-icon">
 </head>
