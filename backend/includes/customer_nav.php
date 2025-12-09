@@ -17,11 +17,11 @@
                     </div>
                     <div class="flex flex-col items-center gap-2">
                       <label for="idiomas" class="text-text font-latobold">Selecciona un idioma:</label>
-                      <select name="idiomas" id="idiomas" class="text-text bg-btn rounded-md px-5 py-2 border border-accent">
-                        <option value="es">🇪🇸 Español</option>
-                        <option value="en">🇺🇸 English</option>
-                        <option value="fr">🇫🇷 Français</option>
-                        <option value="de">🇩🇪 Deutsch</option>
+                      <select id="languages" class="text-text bg-btn rounded-md px-5 py-2 border border-accent">
+                        <option value="es" <?= (!isset($_COOKIE['language']) ? "" : $_COOKIE['language']=='es') ? 'selected' : '' ?>>🇪🇸 Español</option>
+                        <option value="en" <?= (!isset($_COOKIE['language']) ? "" : $_COOKIE['language']=='en') ? 'selected' : '' ?>>🇺🇸 English</option>
+                        <option value="fr" <?= (!isset($_COOKIE['language']) ? "" : $_COOKIE['language']=='fr') ? 'selected' : '' ?>>🇫🇷 Français</option>
+                        <option value="de" <?= (!isset($_COOKIE['language']) ? "" : $_COOKIE['language']=='de') ? 'selected' : '' ?>>🇩🇪 Deutsch</option>
                       </select>
                     </div>
                 </div>

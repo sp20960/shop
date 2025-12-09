@@ -1,7 +1,7 @@
 <?php 
   session_start();
     if (isset($_POST['updateAddress'])){
-
+        //IMPORTANT REFACTOR!
         //GET DATA
         $customerId = $_SESSION['user']['customerId'];
         $name = $_POST['name'];

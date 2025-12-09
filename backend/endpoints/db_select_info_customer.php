@@ -21,6 +21,7 @@ if(isset($_SESSION['user'])){
     $result = mysqli_query($connect, $sql);
     $addresses = mysqli_fetch_all($result, MYSQLI_ASSOC);
     $addresses = ['addresses' => $addresses];
+    mysqli_close($connect);
     
     $allInfo = array_merge($userData, $addresses);
 

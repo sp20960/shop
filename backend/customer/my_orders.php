@@ -9,7 +9,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/customers_f
   </div>
   <div class="flex flex-wrap gap-10 justify-start">
     <?php 
-      OrdersCustomer($_SESSION['user']['customerId']);
+      ordersCustomer($_SESSION['user']['customerId']);
     ?>
   </div>
   

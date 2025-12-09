@@ -13,12 +13,12 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/products_
 ?>
 
 
-<main class="flex flex-col gap-5 bg-[#f5f5dc] p-10 w-full">
+<main class="flex flex-col gap-5 bg-secondary p-10 w-full">
     <div class="absolute top-1 left-[50%] w-[calc(100vw-360px)]">
         <?php if($_SERVER['REQUEST_METHOD'] === "POST" && !empty($userAction)){ ?>
             <div class="bg-primary w-80 flex justify-center items-center py-5 rounded-md gap-2">
            
-                <i class="fa-regular <?= $messages[$userAction]["type"] == "success" ? "fa-check text-green-600" : "fa-x text-red-600" ?>"></i>
+                <i class="fa-solid <?= $messages[$userAction]["type"] == "success" ? "fa-check text-green-600" : "fa-x text-red-600" ?>"></i>
                 <p class="text-text font-bold"><?= $messages["$userAction"]["message"] ?></p>
            
             </div>
@@ -30,8 +30,8 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/products_
     <div>
         <form action="">
             <div class="relative">
-                <input type="search" name="product-name" id="search-input" placeholder="marca,nombre..." class="bg-white border-2 border-btn rounded-md h-10 w-80 outline-none">
-                <i class="fa-regular fa-search absolute left-72 top-4.5 fa-lg"></i>
+                <input type="search" name="product-name" id="search-input" placeholder="Marca,nombre..." class="bg-white px-2 shadow border-2 border-accent rounded-md h-10 w-80 outline-none">
+                <i class="fa-solid fa-search absolute left-72 top-4.5 fa-lg"></i>
             </div>
             
         </form>

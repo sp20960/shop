@@ -20,7 +20,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/db/reviews/db_review
                   </div>
                   <div class="flex flex-col">
                     <h3 class="font-latoregular">Fecha de compra: ' . $productReview['insertedOn'] . '</h3>
-                    <div class="flex pt-8">
+                    <div class="flex pt-8 stars">
                         <i class="fa-regular fa-star fa-2xl star"></i>
                         <i class="fa-regular fa-star fa-2xl star"></i>
                         <i class="fa-regular fa-star fa-2xl star"></i>
@@ -30,7 +30,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/db/reviews/db_review
                   </div>
                   <form action="/student023/shop/backend/customer/my_reviews.php" method="POST" class="flex flex-col gap-5">
                     <input type="hidden" name="productId" value="' . $productReview['productId'] . '" />
-                    <input type="hidden" name="mark" id="mark" value="0" />
+                    <input type="hidden" name="mark" class="mark-input" value="0" />
                     <input type="text" name="subject" placeholder="Asunto...*" class="bg-white rounded-md p-2 text-black" required/>
                     <textarea name="review" cols="50" rows="5" class="bg-white rounded-md text-black p-2" placeholder="Opinión...*" required></textarea>
                     <div class="pt-5">
@@ -90,7 +90,9 @@ require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/db/reviews/db_review
                             echo' </div>
                               </div>
                           </div>
-                          <p>' . $completedReview['content'] . '</p>
+                          <div>
+                            <p>'.$completedReview['content'].'</p>
+                          </div>
                       </div>';
           endforeach;
         else:

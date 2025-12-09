@@ -41,6 +41,7 @@ if (isset($_POST['submit'])) {
 
     // EXECUTE QUERY AND SAVE RESULT
     $result = mysqli_query($connect, $sql);
+    mysqli_close($connect);
 
     $user = mysqli_fetch_assoc($result);
     // CHECK IF CUSTOMER EXISTS
@@ -49,7 +50,7 @@ if (isset($_POST['submit'])) {
       if($_SESSION['user']['rol'] == 'admin'){
         header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/backend/index.php');        
       }else{
-        header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/index.html');
+        header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/views/profile.html');
       }
       // REDIRECT USER TO THE ADMINISTRATOR PANEL
     } else {

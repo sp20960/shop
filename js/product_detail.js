@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const urlProductsEndpoint = "/student023/shop/backend/endpoints/db_products_enabled.php"
+  const urlProductsRelatedEndpoint = "/student023/shop/backend/endpoints/db_products_enabled.php"
   const actualImage = document.getElementById('actual-image');
   const allImages = document.querySelectorAll('#all-images img');
   const listRelatedProducts = document.getElementById('list-related-products');
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadRelatedProducts() {
     try {
-      const response = await fetch(urlProductsEndpoint);
+      const response = await fetch(urlProductsRelatedEndpoint);
       const products = await response.json();
       showRelatedProducts(products);
     } catch (error) {
@@ -34,21 +34,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3 class="font-latobold text-xl">${product.productName}</h3>
                     <p class="font-latobold text-2xl">${product.pricePerUnit} €</p>
                 </div>
-                <div class="flex justify-center bg-accent p-[5px] rounded-2xl w-full cursor-pointer">
+                <div class="card-buy flex justify-center bg-accent p-[5px] rounded-2xl w-full cursor-pointer">
                     <i class="fa-solid icon fa-cart-shopping"></i>
                 </div>
             </article>
         `
         ).join("");
-      addEventProducts();
-      addEventAddToCart()
-      addEventCardBuy();
+      addEventRelatedProducts();
+      addEventRelatedAddToCart()
+      addEventRelatedCardBuy();
     } else {
       listRelatedProducts.innerHTML = "<h1>¡No hay productos disponibles!</h1>";
     }
   }
 
-  function addEventProducts() {
+  function addEventRelatedProducts() {
     const products = document.querySelectorAll('.card img');
 
     products.forEach((product) => {
@@ -59,40 +59,40 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  function addEventAddToCart() {
+  function addEventRelatedAddToCart() {
     const buttons = document.querySelectorAll('.card-buy');
+    console.log(buttons);
 
     buttons.forEach((button) => {
       button.addEventListener('click', (e) => {
-        const productId = e.target.parentElement.dataset.productId;
+        const productId = (button.parentElement.dataset.productId);
         addToShoppingCart(productId);
       })
     })
   }
 
-  async function addToShoppingCart(productId) {
-    const endpointnUrl = `/student023/shop/backend/endpoints/db_shopping_cart_insert.php?productId=${productId}`
-    try {
-      const response = fetch(endpointnUrl)
-      const result = response.
-        console.log(result);
-    } catch (error) {
-
-    }
-  }
-  function addEventCardBuy() {
+  function addEventRelatedCardBuy() {
     document.querySelectorAll('.card-buy').forEach((btn) => {
       btn.addEventListener('click', () => {
         btn.innerHTML = '<i class="fa-solid fa-check"></i>';
 
         // Después de 1.5 segundos vuelve al estado original
         setTimeout(() => {
-          btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i>';
+          btn.innerHTML = '<i class="fa-solid fa-cart-shopping text-text!"></i>';
         }, 1500);
       })
     });
   }
+  
+  async function addToShoppingCart(productId) {
+    const endpointnUrl = `/student023/shop/backend/endpoints/db_shopping_cart_insert.php?productId=${productId}`
+    try {
+      const response = fetch(endpointnUrl)
+      const result = response;
+    } catch (error) {
 
+    }
+  }
 
   allImages.forEach((image) => {
     image.addEventListener('click', () => {
@@ -105,5 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
       image.classList.add('active-image')
     });
   });
+
   loadRelatedProducts();
 })

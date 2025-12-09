@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     if(isset($_POST['addAddress'])){
         $_SESSION['user']['formAction'] =  true;
         $name = $_POST['name'];
@@ -21,5 +22,8 @@
         $sql = "INSERT INTO 023_customers_addresses (customerId, addressId) VALUES($customerId, $addressId);";
         mysqli_query($connect, $sql);
         mysqli_close($connect);
+
+        header("Location: https://".$_SERVER['SERVER_NAME'].'/student023/shop/views/my_profile.php');
+        exit;
     }
 ?>

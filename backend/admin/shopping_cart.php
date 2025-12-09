@@ -1,9 +1,10 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/admin_header.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/security/protect_admin_pages.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shopping_cart/db_shopping_cart_select.php');
 ?>
 
-<main class="flex gap-5 bg-[#f5f5dc] p-10 w-full">
+<main class="flex gap-5 bg-secondary p-10 w-full">
     <div class="w-full flex flex-row gap-5">
         <div class="flex flex-col justify-center gap-5 w-[50%]">
         <?php
@@ -20,9 +21,9 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shopping_cart/d
                     '</div>' .
                     '<div class="flex items-center gap-5">';
                         echo '<div data-product="'.$product['productId'].'" class="flex items-center gap-2">'.
-                                '<i id="minus-icon" class="fa-regular fa-minus text-text cursor-pointer"></i>'.
+                                '<i id="minus-icon" class="fa-solid fa-minus text-text cursor-pointer"></i>'.
                                 '<p id="quantity" class="text-text">'.$product['quantity'].'</p>'.
-                                '<i id="plus-icon" class="fa-regular fa-plus text-text cursor-pointer"></i>'.
+                                '<i id="plus-icon" class="fa-solid fa-plus text-text cursor-pointer"></i>'.
                               '</div>';
                         require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/forms/shopping_cart/form_shopping_cart_delete_call.php');
            echo    '</div>' .
@@ -37,7 +38,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shopping_cart/d
                     <p class="text-text">Todos los precios incluyen <span class="font-bold">IVA</span></p>
                 </div>
                 <div>
-                    <button class="bg-btn rounded-md py-3 px-10 font-bold text-text cursor-pointer">IR A CAJA<i class="fa-regular fa-arrow-right"></i></button> 
+                    <button class="bg-btn rounded-md py-3 px-10 font-bold text-text cursor-pointer">IR A CAJA<i class="fa-solid fa-arrow-right"></i></button> 
                 </div>
             </div>
         </div>

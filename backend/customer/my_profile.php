@@ -1,22 +1,17 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/admin_header.php');
-
-    require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/customers/db_address_insert.php');
-    require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/customers/db_address_update.php');
-    require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/customers/db_customer_update.php');
-
-
-
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/customers_functions.php');
+
 $addresses = returnAddressesCustomer($_SESSION['user']['customerId']);
 $userData = returnCustomerData($_SESSION['user']['customerId']);
+
 ?>
 
 <main class="bg-secondary w-[calc(100vw-320px)] flex flex-col p-20 gap-5">
     <section class="flex w-full gap-5 justify-center">
         <section class="bg-primary/90 w-140 flex flex-col pt-5 py-10 gap-5 items-center shadow-2xl rounded-2xl hover:scale-101 transition-all">
             <h2 class="text-center text-text font-latobold text-2xl"><?= strtoupper($userData[0]['firstName'] . ' ' . $userData[0]['lastName']) ?></h2>
-            <form action="my_profile.php" method="POST" class="flex flex-col items-center gap-5" enctype="multipart/form-data">
+            <form action="../db/customers/db_customer_update.php" method="POST" class="flex flex-col items-center gap-5" enctype="multipart/form-data">
                 <label for="input-profile-image">
                     <div class="rounded-full">
                         <img id="profile-image" src="<?= $userData[0]['imagePath'] ?>" width="300" alt="" class="cursor-pointer hover:opacity-40 transition-all rounded-full">
@@ -29,7 +24,7 @@ $userData = returnCustomerData($_SESSION['user']['customerId']);
 
         <section class="w-220 bg-primary/90 shadow-2xl rounded-2xl flex flex-col hover:scale-101 transition-all p-5">
             <h3 class="text-text text-2xl font-latobold">Account Details</h3>
-            <form id="form-update-customer-info" action="my_profile.php" method="POST" class="flex gap-10 py-7 px-10">
+            <form id="form-update-customer-info" action="../db/customers/db_customer_update.php" method="POST" class="flex gap-10 py-7 px-10">
                 <div class="flex flex-col gap-5 w-80">
                     <div class="flex flex-col">
                         <label for="first-name" class="text-text font-latoregular">Name</label>
@@ -68,10 +63,10 @@ $userData = returnCustomerData($_SESSION['user']['customerId']);
                 <?php for ($i = 0; $i < count($addresses); $i++): ?>
                     <div>
                         <div class="flex items-center" id="show-address-info">
-                            <h1 class="text-text text-xl underline cursor-pointer">Address <?= $i ?></h1><i class="fa-regular fa-caret-down icon"></i>
+                            <h1 class="text-text text-xl underline cursor-pointer">Address <?= $i ?></h1><i class="fa-solid fa-caret-down icon"></i>
                         </div>
                         <div class="pt-5 hidden">
-                            <form action="my_profile.php" method="POST" class="flex flex-col gap-10">
+                            <form action="../db/customers/db_address_update.php" method="POST" class="flex flex-col gap-10">
                                 <input type="hidden" name="addressId" value="<?= $addresses[$i]['addressId'] ?>">
                                 <div class="flex gap-5">
                                     <input type="text" id="name" name="name" placeholder="Name*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-[50%]" value="<?= $addresses[$i]['name'] ?>" required>
@@ -138,7 +133,7 @@ $userData = returnCustomerData($_SESSION['user']['customerId']);
             <i id="close-add-address" class="fa-regular fa-x fa-xl text-text! cursor-pointer"></i>
         </div>
 
-        <form action="my_profile.php" method="POST" class="flex flex-col gap-10">
+        <form action="../db/customers/db_address_insert.php" method="POST" class="flex flex-col gap-10">
             <div class="flex gap-5">
                 <input type="text" id="name" name="name" placeholder="Name*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-[50%]" required>
                 <input type="test" id="lastName" name="lastName" placeholder="Last name*" class="pl-5 border-b-1 h-12 rounded outline-none bg-text font-latoregular w-[50%]" required>
@@ -186,4 +181,6 @@ $userData = returnCustomerData($_SESSION['user']['customerId']);
 </main>
 
 
-<?php require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/footer.php'); ?>
+<?php 
+require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/footer.php'); 
+?>

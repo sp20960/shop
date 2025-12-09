@@ -13,6 +13,7 @@ if(isset($_POST['submit'])){
   require $_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php';
   
   mysqli_query($connect, $sql);
+  mysqli_close($connect);
 }
 
 ?>

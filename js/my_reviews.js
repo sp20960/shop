@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const stars = document.querySelectorAll('.star');
-  const inputMark = document.getElementById('mark');
+  const starGroups = document.querySelectorAll('.stars');
   const checksReview = document.querySelectorAll('#check-review');
 
   checksReview.forEach((cr) => {
@@ -14,6 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
+  starGroups.forEach(group => {
+  const stars = group.querySelectorAll('.star');
+
+  const input = group.closest('.bg-primary').querySelector('.mark-input');
+
   stars.forEach((star, index) => {
     star.addEventListener('click', () => {
 
@@ -21,15 +25,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (i <= index) {
           s.classList.remove('fa-regular');
           s.classList.add('fa-solid');
+          s.classList.add('text-yellow-400!');
         } else {
           s.classList.remove('fa-solid');
+          s.classList.add('text-yellow-400');
           s.classList.add('fa-regular');
         }
       });
-      
-      inputMark.value = document.querySelectorAll('.fa-solid.star').length;
-      console.log(inputMark.value)
+      const filledCount = group.querySelectorAll('.fa-solid').length;
+      input.value = filledCount;
 
     });
   });
 });
+});
+

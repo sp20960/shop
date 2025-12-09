@@ -1,6 +1,5 @@
 <?php 
 session_start();
-print_r( $_SESSION);
   if(isset($_POST['submit']) && $_SESSION['user']['insertOrder'] == 1) {
 
     unset($_SESSION['user']['insertOrder']);
@@ -29,7 +28,7 @@ print_r( $_SESSION);
                   WHERE customerId=$customerId;";
     include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
 
-
+    
     if(mysqli_query($connect, $sqlInsert)){
       mysqli_query($connect, $sqlDelete);
       $sqlSelect = "SELECT subtotal 
@@ -42,9 +41,9 @@ print_r( $_SESSION);
         $total += $subtotal['subtotal'];
       }
       $_SESSION['user']['total'] = $total;
+      mysqli_close($connect);
       header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/backend/checkout/confirmation.php');
     }  
-
   }
 
 ?>

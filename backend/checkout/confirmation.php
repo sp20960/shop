@@ -11,7 +11,7 @@ if(isset($_SESSION['user']['transactionId'])):
     <div class="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
       <div class="w-full flex-col justify-start items-center lg:gap-12 gap-8 inline-flex">
         <div class="w-full flex-col justify-start items-center gap-3 flex">
-          <h2 class="text-center text-gray-900 text-3xl font-bold font-manrope leading-normal"><?= $_SESSION['user']['firstName'] ?>, Thank You for Your Order!</h2>
+          <h2 class="text-center text-gray-900 text-3xl font-bold font-manrope leading-normal"><?= $_SESSION['user']['firstName'] ?? "Customer" ?>, Thank You for Your Order!</h2>
           <div class="justify-center items-center gap-2.5 inline-flex">
             <h5 class="text-gray-500 text-lg font-normal leading-8"> ID: <?= $_SESSION['user']['transactionId'] ?? 'XXXXXX'; ?> / Order Date: <?= Date('Y-m-d', time()) ?></h5>
           </div>

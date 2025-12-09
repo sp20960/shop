@@ -1,7 +1,7 @@
 <?php 
 
 function showOrder($order){
-  echo '<div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm mb-4 h-60 flex flex-col w-60">
+  echo '<div class="bg-primary/90 text-text border border-gray-200 rounded-xl p-4 shadow mb-4 h-60 flex flex-col w-60">
     
     <div class="flex justify-between items-center mb-2">
         <span class="text-lg font-bold">#'.$order['orderNumber'].'</span>
@@ -10,7 +10,7 @@ function showOrder($order){
         </span>
     </div>
 
-    <div class="text-gray-700 space-y-1">
+    <div class="text-text space-y-1">
         <p><span class="font-semibold">Cliente:</span> '.strtoupper($order['firstName']).'</p>
         <p><span class="font-semibold">Total:</span> '.$order['subtotal'].'</p>
         <p><span class="font-semibold">Fecha:</span> '.$order['insertedOn'].'</p>

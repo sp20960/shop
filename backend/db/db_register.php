@@ -35,6 +35,7 @@ if(isset($_POST['register'])){
       require $_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php';
 
       $result = mysqli_query($connect, $sql);
+      mysqli_close($connect);
 
       if($result){
         header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/backend/login.php');

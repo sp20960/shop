@@ -1,33 +1,37 @@
 <?php 
+session_start();
+
  if(isset($_POST['updateCustomer'])){
-        $_SESSION['user']['formAction'] =  true;
-        $customerId = $_SESSION['user']['customerId'];
-        $firstName = $_POST['firstName'];
-        $nif = $_POST['nif'];
-        $phone = $_POST['phone'];
-        $lastName = $_POST['lastName'];
-        $email = $_POST['email'];
+    $customerId = $_SESSION['user']['customerId'];
+    $firstName = $_POST['firstName'];
+    $nif = $_POST['nif'];
+    $phone = $_POST['phone'];
+    $lastName = $_POST['lastName'];
+    $email = $_POST['email'];
 
-        $sql = "UPDATE 023_customers
-                SET firstName = '$firstName',
-                    nif = '$nif',
-                    phone = '$phone',
-                    lastName = '$lastName',
-                    email = '$email'
-                WHERE customerId = $customerId;";
-        include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
-        mysqli_query($connect, $sql);
+    $sql = "UPDATE 023_customers
+                  SET firstName = '$firstName',
+                      nif = '$nif',
+                      phone = '$phone',
+                      lastName = '$lastName',
+                      email = '$email'
+                  WHERE customerId = $customerId;";
+    include($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/config/db_connect.php');
+    mysqli_query($connect, $sql);
 
-      $sql = "SELECT * FROM `023_customers` WHERE customerId=$customerId;";
-      $result = mysqli_query($connect, $sql);
-      $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
-      $_SESSION['user'] = $user[0];
+    $sql = "SELECT * FROM `023_customers` WHERE customerId=$customerId;";
+    $result = mysqli_query($connect, $sql);
+    $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $_SESSION['user'] = $user[0];
 
-      mysqli_close($connect);
-    }
+    mysqli_close($connect);
+
+    header("Location: https://".$_SERVER['SERVER_NAME'].'/student023/shop/views/my_profile.php');
+    exit;
+      
+  }
 
     if (isset($_POST['updateProfileImage'])){
-        $_SESSION['user']['formAction'] =  true;
 
         $customerId = $_SESSION['user']['customerId'];
         $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/student023/shop/assets/images/customers/".(string) $customerId;
@@ -93,5 +97,8 @@
             //CLOSE DB CONEXION
             mysqli_close($connect);  
         }   
+
+        header("Location: https://".$_SERVER['SERVER_NAME'].'/student023/shop/views/my_profile.php');
+        exit;
     }
 ?>

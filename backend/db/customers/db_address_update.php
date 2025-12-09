@@ -1,4 +1,5 @@
 <?php 
+  session_start();
     if (isset($_POST['updateAddress'])){
         $_SESSION['user']['formAction'] =  true;
         //GET DATA
@@ -58,6 +59,9 @@
 
         //CLOSE DB CONEXION
         mysqli_close($connect);   
+
+        header("Location: https://".$_SERVER['SERVER_NAME'].'/student023/shop/views/my_profile.php');
+        exit;
     }
 
      if (isset($_POST['deleteAddress'])){
@@ -81,7 +85,10 @@
         mysqli_query($connect, $sql);
 
         //CLOSE DB CONEXION
-        mysqli_close($connect);   
+        mysqli_close($connect); 
+
+        header("Location: https://".$_SERVER['SERVER_NAME'].'/student023/shop/views/my_profile.php');
+        exit;
     }
 
 ?>

@@ -1,6 +1,6 @@
 <?php
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/security/check_session.php');
-$nickname = $_SESSION['user']['firstName'] ?? 'guest';
+$nickname = $_SESSION['user']['firstName'] ?? 'CUSTOMER';
 $nickname = strtoupper($nickname);
 if (isset($_POST['logout']) && isset($_SESSION['user'])) {
     session_destroy();

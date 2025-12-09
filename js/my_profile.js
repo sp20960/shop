@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeAddAddress = document.getElementById('close-add-address');
     const inputProfileImage = document.getElementById('input-profile-image');
     const profileImage = document.getElementById('profile-image');
-    const logOut = document.getElementById('log-out');
+    const logOutDesktop = document.getElementById('log-out');
 
     async function getCustomerInfo() {
         try {
@@ -37,8 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showUserInfo(userInfo) {
+      console.log(userInfo)
         let fullName = userInfo.firstName + " " + userInfo.lastName
-        document.getElementById('full-name').textContent = fullName.toUpperCase() || "";
+        document.getElementById('full-name').textContent = userInfo.firstName != null ? fullName.toUpperCase() : "";
         document.getElementById('first-name').value = userInfo.firstName || "";
         document.getElementById('last-name').value = userInfo.lastName || ""; 
         document.getElementById('nif').value = userInfo.nif || "";
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('start-addresses').insertAdjacentHTML("afterend", 
                `<div>
                         <div class="flex items-center" id="show-address-info">
-                            <h1 class="text-text text-xl underline cursor-pointer">Address</h1><i class="fa-solid fa-caret-down icon"></i>
+                            <h1 class="text-text text-xl underline cursor-pointer">Dirección</h1><i class="fa-solid fa-caret-down icon"></i>
                         </div>
                         <div class="pt-5 hidden">
                             <form action="../backend/endpoints/db_address_update.php" method="POST" class="flex flex-col gap-10">
@@ -145,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
-    logOut.addEventListener('click', () => {
+    function logOut() {
       const xhttp = new XMLHttpRequest();
       xhttp.open("GET", "/student023/shop/backend/endpoints/logout.php?logout=true", true);
 
@@ -155,18 +156,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
       xhttp.send();
+    }
+
+    logOutDesktop.addEventListener('click', () => {
+      logOut();
     });
 
     document.getElementById('log-out-mobile').addEventListener('click', () => {
-      const xhttp = new XMLHttpRequest();
-      xhttp.open("GET", "/student023/shop/backend/endpoints/logout.php?logout=true", true);
-
-      xhttp.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status == 200 ){
-          window.location.href = "../index.html";
-        }
-      }
-      xhttp.send();
+      logOut();
     });
     getCustomerInfo();
 });
