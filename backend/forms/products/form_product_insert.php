@@ -1,11 +1,10 @@
 <?php 
     include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/admin_header.php');
     include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/products_functions.php');
-    $_SESSION['insert'] = true;
 ?>
 <main>
     <div class="flex justify-center bg-secondary w-[calc(100vw-280px)] py-10">
-        <form action="/student023/shop/backend/admin/products.php" method="POST" enctype="multipart/form-data" class="flex flex-col gap-10 p-10 bg-primary w-300 rounded-xl">
+        <form action="/student023/shop/backend/db/products/db_product_insert.php" method="POST" enctype="multipart/form-data" class="flex flex-col gap-10 p-10 bg-primary w-300 rounded-xl">
             <label class="text-text text-center">AÑADIR UN PRODUCTO</label>
             <div class="flex flex-col gap-2">
                 <label for="productName" class="text-text">Nombre guitarra</label>

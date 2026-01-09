@@ -1,7 +1,5 @@
 <?php
-    if (isset($_POST['insert']) && isset($_SESSION['insert']))  {
-        $userAction = "insert";
-        unset($_SESSION['insert']);
+    if (isset($_POST['insert']))  {
        
         //GET DATA
         $productName = $_POST["productName"];
@@ -29,31 +27,26 @@
 
         // CHECK FILE SIZE
         if ($_FILES["productImage"]["size"] > 50000000) {
-            $messages['insert']["message"] = "El fichero supera los 500MB!";
-            $messages['insert']["type"] = "error";
+            $message= "El fichero supera los 500MB!";
             $isSuccessful = false;
         } 
 
         // CHECK EXTENSION FORMAT OF THE FILE
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-            $messages['insert']["message"] = "Solo JPG, JPEG y PNG estan permitidos!.";
-            $messages['insert']["type"] = "error";
-            echo "";
+            $message = "Solo JPG, JPEG y PNG estan permitidos!.";
             $isSuccessful = false;
         }        
 
         //CHECK IF THE IMAGE EXISTS
         if (file_exists($target_file)) {
-            $messages['insert']["message"] = "El fichero ya existe!";
-            $messages['insert']["type"] = "error";
+            $message = "El fichero ya existe!";
             $isSuccessful = false;
         } 
 
         // Check if isSuccessful
         if ($isSuccessful) {
             if (!move_uploaded_file($_FILES["productImage"]["tmp_name"], $target_file)) {
-                $messages['insert']["message"] = "Ha habido un problema subiendo la imagen!";
-                $messages['insert']["type"] = "error";
+                $message = "Ha habido un problema subiendo la imagen!";
             } 
 
             $imagePath = "/student023/shop/assets/images/products/".strtolower(str_replace(" ", "_", $productName)).'/' .basename($_FILES["productImage"]["name"]);
@@ -62,10 +55,17 @@
             VALUES ('$productName', '$description', $cost, $pricePerUnit, '$brand', $frets, '$color', '$bodyMaterial', $tremolo, $categoryId, '$imagePath' )";
 
             //INERT PRODUCT
-            mysqli_query($connect, $sql);
+            if(mysqli_query($connect, $sql))
+            {
+              mysqli_close($connect);   
+              header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/admin/products.php?proc=successfull&msg=Producto+añadido+correctamente');
+            } else{
+              mysqli_close($connect);   
+              header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/admin/products.php?proc=fail&msg=¡Ha+habido+un+problema!');
+            }
 
-            //CLOSE DB CONEXION
-            mysqli_close($connect);  
+        }else {
+          header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/admin/products.php?proc=fail&msg=' + $message);
         }     
     }
 ?>

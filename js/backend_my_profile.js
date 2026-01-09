@@ -1,7 +1,6 @@
-
+//REFACTOR !!!! here handle messages
 document.addEventListener('DOMContentLoaded', () => {
     const btnNoAddress = document.getElementById("button-no-address");
-    const urlEndpoint = "/student023/shop/backend/endpoints/db_select_info_customer.php"
     const containerAddAddress = document.getElementById('container-add-address');
     const closeAddAddress = document.getElementById('close-add-address');
     const inputProfileImage = document.getElementById('input-profile-image');
@@ -23,8 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             })
         }
-
-    
 
     inputProfileImage.addEventListener('change', (e) => {
         const file = e.target.files[0];

@@ -1,3 +1,4 @@
+//REFACTORED!!!
 addEventListener('DOMContentLoaded', () => {
     const logo = document.getElementById('logo');
     const profileDropdownContent = document.getElementById('profile-dropdown-content');
@@ -9,20 +10,8 @@ addEventListener('DOMContentLoaded', () => {
     })
 
     languageSelect?.addEventListener('change', () => {
-      let params = 'language=' + (languageSelect.value);
-
-      let xhttp = new XMLHttpRequest();
-      xhttp.open('POST', '/student023/shop/backend/endpoints/language_cookie.php', true);
-
-      xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-      xhttp.onreadystatechange = function (){
-        if(xhttp.readyState == 4 && xhttp.status == 200){
-          console.log(xhttp);
-        }
-      }
-
-      xhttp.send(params);
+      fetchDataPost('/student023/shop/backend/endpoints/language_cookie.php', 
+                    'language=' + (languageSelect.value), false);
     });
 
     profile.addEventListener('click', () => {

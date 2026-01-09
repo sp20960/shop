@@ -60,7 +60,7 @@
         //CLOSE DB CONEXION
         mysqli_close($connect);   
 
-        header("Location: https://".$_SERVER['SERVER_NAME'].'/student023/shop/views/my_profile.php');
+        header("Location: https://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/customer/my_profile.php');
         exit;
     }
 
@@ -87,7 +87,7 @@
         //CLOSE DB CONEXION
         mysqli_close($connect); 
 
-        header("Location: https://".$_SERVER['SERVER_NAME'].'/student023/shop/views/my_profile.php');
+        header("Location: https://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/customer/my_profile.php');
         exit;
     }
 

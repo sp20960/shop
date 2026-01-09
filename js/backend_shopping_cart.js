@@ -1,83 +1,56 @@
+//REFACTORED !!! I need to handle how to convert de subtotal in a DECIMAL 10,2
 document.addEventListener('DOMContentLoaded', () => {
-    const urlShoppingCartUpdateEndpoint = "/student023/shop/backend/endpoints/db_shopping_cart_update.php"
-    const minusIcons = document.querySelectorAll('#minus-icon');
-    const plusIcon = document.querySelectorAll('#plus-icon');
+  const urlShoppingCartUpdateEndpoint = "/student023/shop/backend/endpoints/db_shopping_cart_update.php"
+  const minusIcons = document.querySelectorAll('#minus-icon');
+  const plusIcon = document.querySelectorAll('#plus-icon');
 
-    async function updateShoppingCart(quantity, productId) {
+  async function updateShoppingCart(quantity, productId) {
 
-        // SAVE PARAMS WE WILL SEND VIA POST
-        let params = 
-            "quantity=" + encodeURIComponent(quantity)
-            + "&productId=" + encodeURIComponent(productId); //IMPORTANT!!!! PUT THE & CHARACTER
+    const fd = new FormData();
+    fd.append("quantity", quantity);
+    fd.append("productId", productId);
 
-        // CREATE NEW HTTPREQUEST OBJECT
-        let xhttp = new XMLHttpRequest();
-        // WE OPEN DE STREAM SPECIFING THE METHOD, URL and ASYNC
-        xhttp.open("POST", urlShoppingCartUpdateEndpoint, true);
+    const subotals = await fetchDataPost(urlShoppingCartUpdateEndpoint, fd, true)
+    console.log(subotals)
 
-        // PUT IN THE HTTP HEADER THAT THE CONTENT WE WILL SEND IS FORM URLENCODED DATA
-        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    updateTotal(subotals)
+  }
 
-        // IF ALL WORKS THERE IS A RESPONSE
-        xhttp.onreadystatechange = function () {
-            if(xhttp.readyState === 4 && xhttp.status === 200) {
-                updateTotal(JSON.parse(xhttp.responseText));
-            }
-        }
-
-        //SEND PARAMS
-        xhttp.send(params);
-
-        // FETCH    
-        // try {
-        //     const response = await fetch(urlShoppingCartUpdateEndpoint + `?quantity=${quantity}&productId=${productId}`);
-        //     const subtotals = await response.json();
-        //     updateTotal(subtotals);
-        // } catch (error) {
-        //     console.log(error);
-        // }
-        
-    }
-
-    function updateTotal(subtotals){
-        let totalPrice = 0;
-        subtotals.forEach((product) => {
-            totalPrice += +product.subtotal;
-        });
-        document.getElementById('total-price').innerText = +totalPrice;
-    }
-
-    minusIcons.forEach((icon) => {
-        icon.addEventListener('click', (e) => {
-            let quantity = e.target.nextSibling;
-            if(+quantity.innerText === 1) {
-                return;
-            }   
-        
-            quantity.innerText = +quantity.innerText - 1
-            let productId = e.target.parentElement.attributes['data-product'].value;
-            
-            updateShoppingCart(quantity.innerText, productId);
-        });
+  function updateTotal(subtotals) {
+    let totalPrice = 0;
+    subtotals.forEach((product) => {
+      totalPrice += parseInt(product.subtotal);
     });
+    document.getElementById('total-price').innerText = +totalPrice;
+  }
 
-    plusIcon.forEach((icon) => {
-        icon.addEventListener('click', (e) => {
-            let quantity = e.target.previousSibling;
-            if(+quantity.innerText === 12) {
-                return;
-            }   
-        
-            quantity.innerText = +quantity.innerText + 1
-            let productId = e.target.parentElement.attributes['data-product'].value;
-            
-            updateShoppingCart(quantity.innerText, productId);
-        });
+  minusIcons.forEach((icon) => {
+    icon.addEventListener('click', (e) => {
+      let quantity = e.target.nextSibling;
+      if (+quantity.innerText === 1) {
+        return;
+      }
+
+      quantity.innerText = +quantity.innerText - 1
+      let productId = e.target.parentElement.attributes['data-product'].value;
+
+      updateShoppingCart(quantity.innerText, productId);
     });
+  });
 
-    // minusIcon.addEventListener('click', () => {
-    //     if (+minusIcon.innerText === 1) {
-    //         return;
-    //     }         
-    // })
+  plusIcon.forEach((icon) => {
+    icon.addEventListener('click', (e) => {
+      let quantity = e.target.previousSibling;
+      if (+quantity.innerText === 12) {
+        return;
+      }
+
+      quantity.innerText = +quantity.innerText + 1
+      let productId = e.target.parentElement.attributes['data-product'].value;
+
+      updateShoppingCart(quantity.innerText, productId);
+    });
+  });
+
+  showMessage();
 });

@@ -1,11 +1,14 @@
 <?php
+//IMPORTANT HERE I SHOULD HANDLE MESSAGES TO THE USER
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/admin_header.php');
-
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shopping_cart/db_shopping_cart_select.php');
 $_SESSION['user']['insertOrder'] = true;
 ?>
 
 <main class="flex gap-5 bg-secondary p-10 w-full">
+  <div id="messages-container" class="absolute top-1 left-[50%] w-[calc(100vw-360px)] flex flex-col gap-2">
+    
+  </div>
   <div class="w-full flex flex-row gap-5">
     <div class="flex flex-col justify-center gap-5 w-[50%]">
       <?php
@@ -53,6 +56,7 @@ $_SESSION['user']['insertOrder'] = true;
     </div>
   </div>
   </div>
+  <script src="/student023/shop/js/utils.js"></script>
   <script src="/student023/shop/js/backend_shopping_cart.js"></script>
 </main>
 

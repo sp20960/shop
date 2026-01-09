@@ -14,9 +14,9 @@
             WHERE productId = $productId AND customerId = $customerId";
 
         if (mysqli_query($connect,$sql)){
-            echo "Record deleted successfully";
+          header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/customer/my_shopping_cart.php?proc=successfull&msg=Producto+eliminado+correctamente');
         } else{
-            echo "ERROR";
+          header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/customer/my_shopping_cart.php?proc=fail&msg=¡Ha+habido+un+problema!');
         }
 
         //CLOSE DB CONEXION

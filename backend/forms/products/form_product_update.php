@@ -1,7 +1,6 @@
 <?php 
     require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/admin_header.php');
     require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/products_functions.php');
-    $_SESSION['update'] = true;
     
     $productId = $_POST["productId"];
     $product = returnProductById($productId);
@@ -21,7 +20,7 @@
 ?>
 <main>
     <div class="flex justify-center p-10 bg-secondary w-[calc(100vw-280px)]">
-        <form action="/student023/shop/backend/admin/products.php" method="POST" class="flex flex-col gap-10 p-10 bg-primary w-300 rounded-xl">
+        <form action="/student023/shop/backend/db/products/db_product_update.php" method="POST" class="flex flex-col gap-10 p-10 bg-primary w-300 rounded-xl">
             <input type="text" name="productId" value="<?= htmlspecialchars($productId); ?>" hidden>
             <div class="flex flex-col gap-2">
                 <label for="productName" class="text-text">Nombre guitarra</label>

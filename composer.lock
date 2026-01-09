@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "108be68e4e2b97fed51d36a10eed0849",
+    "content-hash": "713f60e079e4efce2732f5d39edc4628",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -67,6 +67,48 @@
                 }
             ],
             "time": "2024-07-20T21:45:45+00:00"
+        },
+        {
+            "name": "oittaa/uuid",
+            "version": "1.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oittaa/uuid-php.git",
+                "reference": "a0efdb644f869cd4736809f243bc072784b61734"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oittaa/uuid-php/zipball/a0efdb644f869cd4736809f243bc072784b61734",
+                "reference": "a0efdb644f869cd4736809f243bc072784b61734",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "UUID\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A small PHP class for generating RFC 9562 universally unique identifiers (UUID) from version 3 to version 8.",
+            "keywords": [
+                "guid",
+                "identifier",
+                "uuid"
+            ],
+            "support": {
+                "issues": "https://github.com/oittaa/uuid-php/issues",
+                "source": "https://github.com/oittaa/uuid-php/tree/1.10"
+            },
+            "time": "2024-07-10T20:19:34+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -488,5 +530,5 @@
     "prefer-lowest": false,
     "platform": {},
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }

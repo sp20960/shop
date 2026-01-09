@@ -10,14 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if(productsToAdd){
         listShoppingCart.innerHTML = ""
         for(const product of productsToAdd.products){
-            loadShoppingCart(product);
+            showLocalStorageProducts(product);
         } 
-      }else {
-        console.log("first")
       }
     }
 
-    function loadShoppingCart(product){  
+    function showLocalStorageProducts(product){  
       
         let params = "productId=" + encodeURIComponent(product.productId) +
                       "&quantity=" + encodeURIComponent(product.qty);
@@ -28,12 +26,22 @@ document.addEventListener('DOMContentLoaded', () => {
         xhttp.onreadystatechange = function(){
           if(xhttp.readyState == 4 && xhttp.status == 200){
               listShoppingCart.innerHTML += xhttp.responseText;
-                      addEventTrash();
-
+              addEventTrash();
+              updateSubtotal();
           }
         }
         xhttp.send(params)
 
+    }
+
+    function updateSubtotal(){
+      const products = document.querySelectorAll('.shopping-cart-product');
+      const subtotalPrice = document.getElementById('subtotal');
+      let subtotal = 0;
+      products.forEach((product) => {
+        subtotal += +product.dataset.productPrice;
+      })
+      subtotalPrice.innerText = subtotal;
     }
 
     function addEventTrash(){

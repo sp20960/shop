@@ -1,4 +1,11 @@
 <?php
+if (isset($_SESSION['user'])){
+    if ($_SESSION['user']['rol'] == "customer"){
+        header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/views/profile.html') ;
+    } else if($_SESSION['user']['rol'] == "admin") {
+        header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/') ;
+    }
+}
   require($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/db/db_login.php');
 ?>
 

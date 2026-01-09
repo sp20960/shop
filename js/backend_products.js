@@ -1,5 +1,7 @@
+//REFACTORED!!! showFilteredProducts will be in the backend asap
 document.addEventListener("DOMContentLoaded", () => {
   const addProductBtn = document.getElementById("add-product-btn");
+  const searchProduct = document.getElementById("search-product");
   const searchInput = document.getElementById("search-input");
   const filteredPorducts = document.getElementById("filtered-products");
   const allProducts = document.getElementById("all-products");
@@ -9,13 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
       showFilteredProducts();
       return;
     }
-    try {
-      const response = await fetch("/student023/shop/backend/endpoints/db_product_search.php?productName=" + userFilter);
-      const products = await response.json();
-      showFilteredProducts(products);
-    } catch (error) {
-      
-    }
+    const products = await fetchDataGet("/student023/shop/backend/endpoints/db_product_search.php?productName=" + userFilter, true);
+    showFilteredProducts(products)
   }
 
   function showFilteredProducts(products = "") {
@@ -78,7 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
       "/student023/shop/backend/forms/products/form_product_insert.php";
   });
 
-  searchInput.addEventListener("keyup", (e) => {
+  searchProduct.addEventListener("submit", (e) => {
+    e.preventDefault();
     filterRequest(searchInput.value);
   });
+
+  showMessage();
 });

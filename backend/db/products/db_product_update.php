@@ -1,7 +1,5 @@
 <?php 
-    if (isset($_POST['update']) && isset($_SESSION['update'])){
-        $userAction = "update";
-        unset($_SESSION['update']);
+    if (isset($_POST['update'])){
 
          //GET DATA
         $productId = $_POST["productId"];
@@ -33,9 +31,13 @@
                 categoryId = '$categoryId' 
                 WHERE productId = '$productId'";
 
-        mysqli_query($connect, $sql);
-
-        //CLOSE DB CONEXION
-        mysqli_close($connect);   
+        if(mysqli_query($connect, $sql))
+        {
+          mysqli_close($connect);   
+          header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/admin/products.php?proc=successfull&msg=Producto+actualizado+correctamente');
+        } else{
+          mysqli_close($connect);   
+          header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/admin/products.php?proc=fail&msg=¡Ha+habido+un+problema!');
+        }
     }
 ?>

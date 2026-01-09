@@ -1,4 +1,8 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Headers: *");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+    header("Content-Type: application/json; charset=utf-8");
 if (isset($_POST['productId'])) {
   $productId = $_POST['productId'];
   $quantity = $_POST['quantity'];
@@ -7,7 +11,7 @@ if (isset($_POST['productId'])) {
   $product = returnProductById($productId);
 
   echo '
-    <div class="shopping-cart-product" data-product-id="'.$productId.'">
+    <div class="shopping-cart-product" data-product-id="'.$productId.'", data-product-price="'.$product[0]['pricePerUnit'].'">
                     <div>
                         <img src="'.$product[0]['imagePath'].'" alt="" width="100">
                     </div>
@@ -31,7 +35,7 @@ if (isset($_POST['productId'])) {
                                     <option value="9" '.($quantity == 9 ? "selected": "").'>9</option>
                                     <option value="10" '.($quantity == 10 ? "selected": "").'>10</option>
                                 </select>
-                                <h2>'.$product[0]['pricePerUnit'].'</h2>
+                                <h2>'.$product[0]['pricePerUnit'].'€</h2>
                             </div>
                         </div>
                     </div>

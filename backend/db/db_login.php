@@ -1,14 +1,8 @@
 <?php
 session_start();
-
-if (isset($_SESSION['user'])){
-    if ($_SESSION['user']['rol'] == "customer"){
-        header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/views/profile.html') ;
-    } else if($_SESSION['user']['rol'] == "admin") {
-        header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/') ;
-    }
-}
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 $errors = [];
 
 if (isset($_POST['submit'])) {
@@ -47,14 +41,20 @@ if (isset($_POST['submit'])) {
     // CHECK IF CUSTOMER EXISTS
     if ($user) {
       $_SESSION['user'] = $user;
+
+      //Log insert
+      $file = $_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/logs/log_in_log.txt';
+      $message = "\n".date("c", time()).'--'.'Customer Id: '.$_SESSION['user']['customerId'].' Logged in';
+      $handle = fopen($file, 'a+');
+      fwrite($handle, $message);
+      fclose($handle);
+
       if($_SESSION['user']['rol'] == 'admin'){
         header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/backend/index.php');        
       }else{
         header("Location: http://" . $_SERVER['SERVER_NAME'] . '/student023/shop/views/profile.html');
       }
-      // REDIRECT USER TO THE ADMINISTRATOR PANEL
     } else {
-      // REDIRECT USER TO THE LOGIN
       $errors['fail'] = "Email o contraseña incorrecto!";
     }
   }

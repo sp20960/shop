@@ -1,30 +1,23 @@
+//REFACTORED!!!! showCustomers will be in the backend asap
 document.addEventListener("DOMContentLoaded", () => {
   const searchCustomer = document.getElementById("search-customer");
   const listCustomers = document.getElementById("list-customers");
   const inputUserFilter = document.getElementById('input-user-filter');
 
-  function filterRequest(userFilter) {
-    let params = 'userInput=' + encodeURIComponent(userFilter);
+  async function filterRequest(userFilter) {
+    const fd = new FormData();
+    fd.append("userInput", userFilter);
 
-    let xhttp = new XMLHttpRequest();
-
-    xhttp.open('POST', '/student023/shop/backend/endpoints/db_customer_search.php', true);
-    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-    xhttp.onreadystatechange = function() {
-      if(xhttp.readyState == 4 && xhttp.status == 200){
-        showcustomers(JSON.parse(xhttp.responseText));
-      }
-    }
-
-    xhttp.send(params);
+    const customers = await fetchDataPost('/student023/shop/backend/endpoints/db_customer_search.php',
+                                        fd, true);
+    showcustomers(customers);
   }
 
   function showcustomers(customer) {
       listCustomers.innerHTML = 
       customer.map((customer) =>( 
         `
-          <div class="bg-primary/90 text-text border border-gray-200 rounded-xl p-4 shadow mb-4 w-60 flex flex-col min-h-60">
+          <div class="bg-primary/90 text-text border border-gray-200 rounded-xl p-4 shadow mb-4 w-100 flex flex-col min-h-60">
     
     <div class="flex justify-between items-center mb-2">
         <span class="text-lg font-bold">#${customer.customerId} </span>

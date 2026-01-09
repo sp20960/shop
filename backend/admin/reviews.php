@@ -8,7 +8,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/db/reviews/db_select
       <h1 class="font-latobold text-3xl pb-10">Reviews a revisar</h1>
 
       <div class="flex flex-wrap gap-5">
-              <?php 
+        <?php 
       
         if(isset($reviews[0]['reviewId'])): 
           foreach($reviews as $review):
@@ -47,7 +47,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/db/reviews/db_select
                               <input type="hidden" name="reviewId" value="'.$review['reviewId'].'" />
                               <button type="submit" name="acceptReview" class="cursor-pointer"><i class="fa-solid fa-check text-green-400! fa-2xl"></i></button>
                             </form>
-                            <form action="reviews.php" method="POST">
+                            <form action="..db/reviews/db/db_update_checked.php" method="POST">
                               <input type="hidden" name="reviewId" value="'.$review['reviewId'].'" />
                               <button type="submit" name="denyReview" class="cursor-pointer"><i class="fa-solid fa-x text-red-400! fa-2xl"></i></button>
                             </form>

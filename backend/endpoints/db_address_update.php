@@ -1,7 +1,6 @@
 <?php 
   session_start();
     if (isset($_POST['updateAddress'])){
-        //IMPORTANT REFACTOR!
         //GET DATA
         $customerId = $_SESSION['user']['customerId'];
         $name = $_POST['name'];
@@ -30,33 +29,33 @@
         mysqli_query($connect, $sql);
 
         if($_POST['isDefault'] == "on"){
-          $sql = "SELECT *
+          $sqlCheckDefaulAddress = "SELECT *
                   FROM 023_customers_addresses
                   WHERE customerId = $customerId AND isDefault = 1
                   LIMIT 1;";
-          $query = mysqli_query($connect, $sql);
-          $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
-          if(isset($result[0]['customerId'])){
-            $addressIdPrev = $result[0]['addressId'];
-            $sql = "UPDATE 023_customers_addresses
+          $result = mysqli_query($connect, $sqlCheckDefaulAddress);
+          $checkDefaulAddress = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+          if(isset($checkDefaulAddress[0]['customerId'])){
+            $oldAddressId = $result[0]['addressId'];
+
+            $sqlUpdateDefaultOldAddress = "UPDATE 023_customers_addresses
                     SET isDefault = 0
-                    WHERE customerId = $customerId AND addressId = $addressIdPrev;";
-            mysqli_query($connect, $sql);
+                    WHERE customerId = $customerId AND addressId = $oldAddressId;";
+            mysqli_query($connect, $sqlUpdateDefaultOldAddress);
           }
-          
-          $sql = "UPDATE 023_customers_addresses
+
+          $sqlUpdateNewDefaultAddress = "UPDATE 023_customers_addresses
                   SET isDefault = 1
                   WHERE addressId = $addressId AND customerId = $customerId";
+          mysqli_query($connect, $sqlUpdateNewDefaultAddress);
 
-          mysqli_query($connect, $sql);
         } else {
-          $sql = "UPDATE 023_customers_addresses
+          $sqlUpdateDefaultAddress = "UPDATE 023_customers_addresses
                   SET isDefault = 0
                   WHERE addressId = $addressId AND customerId = $customerId;";
-
-          mysqli_query($connect, $sql);
+          mysqli_query($connect, $sqlUpdateDefaultAddress);
         }
-
         //CLOSE DB CONEXION
         mysqli_close($connect);   
     }

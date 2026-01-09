@@ -32,9 +32,9 @@ function ordersCustomer($customerId){
   mysqli_close($connect);
   $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
   foreach ($orders as $order):
-    echo '<div class="bg-primary border text-text border-gray-200 rounded-xl p-4 shadow-sm mb-4 h-60 flex flex-col w-60">
+    echo '<div class="bg-primary border text-text border-gray-200 rounded-xl p-4 shadow-sm mb-4 min-h-60 flex flex-col min-w-60">
     
-              <div class="flex justify-between items-center mb-2">
+              <div class="flex justify-between items-center mb-2 gap-5">
                   <span class="text-lg font-bold">#' . $order['orderNumber'] . '</span>
                   <span class="px-3 py-1 rounded-full text-white text-sm bg-accent">
                       ' . strtoupper($order['status']) . '
@@ -107,7 +107,7 @@ function completedReviews($customerId)
 
 
 function showCustomer($customer){
-  echo '<div class="bg-primary/90 text-text border border-gray-200 rounded-xl p-4 shadow mb-4 min-h-60 flex flex-col w-60">
+  echo '<div class="bg-primary/90 text-text border border-gray-200 rounded-xl p-4 shadow mb-4 min-h-60 flex flex-col min-w-100">
     
     <div class="flex justify-between items-center mb-2">
         <span class="text-lg font-bold">#'.$customer['customerId'].'</span>
@@ -117,8 +117,8 @@ function showCustomer($customer){
     </div>
 
     <div class="text-text space-y-1">
-        <p><span class="font-semibold">Nombre:</span> '.strtoupper($customer['firstName']).'</p>
-        <p><span class="font-semibold">Apellidos:</span> '.strtoupper($customer['lastName']).'</p>
+        <p><span class="font-semibold">Nombre:</span> '.($customer['firstName'] != "" ? strtoupper($customer['firstName']) : 'No hay datos').'</p>
+        <p><span class="font-semibold">Apellidos:</span> '.($customer['lastName'] != "" ? strtoupper($customer['lastName']) : 'No hay datos').'</p>
         <p><span class="font-semibold">Email:</span> '.$customer['email'].'</p>
     </div>
 

@@ -1,4 +1,4 @@
-<?php 
+  <?php 
     session_start();
     if (isset($_POST['productId']) && isset($_POST['quantity'])){
         $quantity = $_POST['quantity'];

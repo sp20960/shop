@@ -16,7 +16,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/orders_func
 
     </form>
   </div>
-  <div class="flex flex-wrap gap-10 justify-start" id="list-orders">
+  <div class="flex flex-wrap gap-10" id="list-orders">
     <?php 
     foreach($orders as $order):
       showOrder($order);

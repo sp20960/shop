@@ -1,9 +1,9 @@
 <?php 
 
 function showOrder($order){
-  echo '<div class="bg-primary/90 text-text border border-gray-200 rounded-xl p-4 shadow mb-4 h-60 flex flex-col w-60">
+  echo '<div class="bg-primary/90 text-text border border-gray-200 rounded-xl p-4 shadow mb-4 min-h-60 flex flex-col w-110">
     
-    <div class="flex justify-between items-center mb-2">
+    <div class="flex flex-col-reverse items-start gap-2 mb-2">
         <span class="text-lg font-bold">#'.$order['orderNumber'].'</span>
         <span class="px-3 py-1 rounded-full text-white text-sm bg-accent">
             '.strtoupper($order['status']).'
