@@ -1,3 +1,4 @@
+const apiKey = 'zpka_0ddd4e973d1e411891e6bfa601a1a424_3bce2e19';
 const locationKey = 1466169;
 const urlApi = "https://dataservice.accuweather.com/currentconditions/v1/"
 const endpoint = '/student023/shop/backend/api/accuweather/save_weather_info.php'
