@@ -1,6 +1,4 @@
 <?php
-require __DIR__. '../../../../vendor/autoload.php';
-use UUID\UUID;
 session_start();
 
   if(isset($_POST['submit']) && $_SESSION['user']['insertOrder'] == "true") {

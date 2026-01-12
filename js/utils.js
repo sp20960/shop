@@ -11,7 +11,8 @@ async function fetchDataGet(url, returnValue) {
     console.log(error)
   }
 }
-
+//TO-DO
+//Pasar como parametro el content type para ponerlo en el header de la petición
 async function fetchDataPost(url, params, returnValue) {
 
   try {

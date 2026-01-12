@@ -1,0 +1,19 @@
+{
+  "info": [
+    {
+      "LocalObservationDateTime": "2026-01-12T16:36:00+01:00",
+      "EpochTime": 1768232160,
+      "WeatherText": "Partly sunny",
+      "WeatherIcon": 3,
+      "HasPrecipitation": false,
+      "PrecipitationType": null,
+      "IsDayTime": true,
+      "Temperature": {
+        "Metric": { "Value": 13.9, "Unit": "C", "UnitType": 17 },
+        "Imperial": { "Value": 57, "Unit": "F", "UnitType": 18 }
+      },
+      "MobileLink": "http://www.accuweather.com/en/es/biniancolla/1466169/current-weather/1466169?lang=en-us",
+      "Link": "http://www.accuweather.com/en/es/biniancolla/1466169/current-weather/1466169?lang=en-us"
+    }
+  ]
+}
