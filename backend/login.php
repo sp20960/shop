@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_SESSION['user'])){
     if ($_SESSION['user']['rol'] == "customer"){
         header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/views/profile.html') ;

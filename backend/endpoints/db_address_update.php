@@ -30,11 +30,12 @@
 
         if($_POST['isDefault'] == "on"){
           $sqlCheckDefaulAddress = "SELECT *
-                  FROM 023_customers_addresses
+                  FROM `023_customers_addresses`
                   WHERE customerId = $customerId AND isDefault = 1
                   LIMIT 1;";
           $result = mysqli_query($connect, $sqlCheckDefaulAddress);
-          $checkDefaulAddress = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+          $checkDefaulAddress = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
           if(isset($checkDefaulAddress[0]['customerId'])){
             $oldAddressId = $result[0]['addressId'];

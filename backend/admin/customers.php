@@ -17,7 +17,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/includes/customers_f
 
     </form>
   </div>
-  <div class="flex flex-wrap gap-10 justify-center" id="list-customers">
+  <div class="flex flex-wrap gap-10" id="list-customers">
     <?php 
     foreach($customers as $customer):
       showCustomer($customer);

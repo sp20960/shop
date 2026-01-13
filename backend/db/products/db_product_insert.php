@@ -1,4 +1,5 @@
 <?php
+
     if (isset($_POST['insert']))  {
        
         //GET DATA
@@ -22,7 +23,8 @@
         // CHECK IF EXISTS THE DIRECTORY
         if (!is_dir($target_dir)){
             // CREATE DIRECTORY IF NOT EXISTS
-            mkdir($target_dir, 0777, true);
+            mkdir($target_dir, 0775, true);
+            chmod($target_dir, 0775);
         }
 
         // CHECK FILE SIZE
@@ -46,7 +48,7 @@
         // Check if isSuccessful
         if ($isSuccessful) {
             if (!move_uploaded_file($_FILES["productImage"]["tmp_name"], $target_file)) {
-                $message = "Ha habido un problema subiendo la imagen!";
+              header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/admin/products.php?proc=fail&msg=¡Ha+habido+un+problema+con+la+imagen!');
             } 
 
             $imagePath = "/student023/shop/assets/images/products/".strtolower(str_replace(" ", "_", $productName)).'/' .basename($_FILES["productImage"]["name"]);
@@ -65,7 +67,7 @@
             }
 
         }else {
-          header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/admin/products.php?proc=fail&msg=' + $message);
+          header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/backend/admin/products.php?proc=fail&msg='.$message);
         }     
     }
 ?>

@@ -1,8 +1,6 @@
 <?php
 session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 $errors = [];
 
 if (isset($_POST['submit'])) {
@@ -25,6 +23,7 @@ if (isset($_POST['submit'])) {
     $errors['email'] = "Este campo es obligatorio!";
   }
 
+
   if (!array_filter($errors)) {
     // CREATE QUERY
 
@@ -36,13 +35,12 @@ if (isset($_POST['submit'])) {
     // EXECUTE QUERY AND SAVE RESULT
     $result = mysqli_query($connect, $sql);
     mysqli_close($connect);
-
     $user = mysqli_fetch_assoc($result);
     // CHECK IF CUSTOMER EXISTS
     if ($user) {
       $_SESSION['user'] = $user;
 
-      //Log insert
+      // Log insert
       $file = $_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/logs/log_in_log.txt';
       $message = "\n".date("c", time()).'--'.'Customer Id: '.$_SESSION['user']['customerId'].' Logged in';
       $handle = fopen($file, 'a+');

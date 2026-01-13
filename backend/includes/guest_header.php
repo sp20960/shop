@@ -13,6 +13,6 @@
 <body>
     <header class="flex items-center justify-center bg-primary px-10 py-5">
         <div class="cursor-pointer" id="logo">
-            <img src="/student023/shop/assets/images/brand/logo_claro.png" alt="" class="w-10" onclick="location.href='../index.html'">
+            <img src="/student023/shop/assets/images/brand/logo_claro.png" alt="" class="w-10" onclick="location.href='../index.php'">
         </div>
     </header>

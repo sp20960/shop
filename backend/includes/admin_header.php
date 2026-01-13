@@ -3,6 +3,13 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/security/check_ses
 $nickname = $_SESSION['user']['firstName'] ?? 'CUSTOMER';
 $nickname = strtoupper($nickname);
 if (isset($_POST['logout']) && isset($_SESSION['user'])) {
+    //Log insert
+    $file = $_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/logs/log_in_log.txt';
+    $message = "\n".date("c", time()).'--'.'Customer Id: '.$_SESSION['user']['customerId'].' Logged Out';
+    $handle = fopen($file, 'a+');
+    fwrite($handle, $message);
+    fclose($handle);
+    
     session_destroy();
     header("Location: http://".$_SERVER['SERVER_NAME'].'/student023/shop/') ;
 }

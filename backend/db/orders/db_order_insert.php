@@ -25,11 +25,10 @@ session_start();
             WHERE customerId = $customerId
             RETURNING orderNumber;
     ";
-    
+
     include($_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php');
 
     if($result = mysqli_query($connect, $sqlInsert)){
-      
       $orderNumber = mysqli_fetch_all($result, MYSQLI_ASSOC)[0]['orderNumber'];
       $sqlDeleteCart = "DELETE FROM `023_shopping_carts` 
                   WHERE customerId=$customerId;";
