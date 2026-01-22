@@ -38,7 +38,7 @@ $customerId = $_SESSION['user']['customerId'];
         <?php 
           foreach(returnAddressesCustomer($customerId) as $address):
         ?>
-          <div class="border border-primary rounded-2xl flex p-5 gap-10">
+          <div class="border border-primary rounded-2xl flex p-5 gap-10 shadow-2xl">
             <input type="radio" name="address" value="<?= $address['addressId'] ?>" required>
             <div class="flex flex-col text-lg font-latoregular">
               <p><?= $address['address'] ?></p>

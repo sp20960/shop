@@ -1,11 +1,16 @@
-async function fetchDataGet(url, returnValue) {
+async function fetchDataGet(url, returnValue, isJson) {
   try {
     const response = await fetch(url)
 
     if(!returnValue){
       return console.log(response)
     }
-    return await response.json();
+
+    if(isJson){
+      return await response.json();
+    }
+
+    return await response.text()
 
   } catch (error) {
     console.log(error)
@@ -33,8 +38,17 @@ async function fetchDataPost(url, params, returnValue) {
     
 }
 
-function isLogged() {
+async function isLogged() {
+  try {
+    const endpoint = '/student023/shop/backend/endpoints/check_session.php'
+    
+    const response = await fetch(endpoint);
+    const result = await response.text();
 
+    return result;
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 function showMessage() {

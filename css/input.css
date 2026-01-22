@@ -20,6 +20,18 @@
 }
 
 @layer components {
+
+  @keyframes fadeIn {
+    to{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn{
+    animation: fadeIn 0.8s ease-in forwards;
+  }
+
   .header{
     @apply p-5 bg-primary flex w-full items-center justify-between fixed z-[1000]
   }

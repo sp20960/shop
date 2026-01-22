@@ -28,7 +28,12 @@ main {
       padding: 20px;
       gap: 30px;
 
+      h1{
+          text-align: center;
+      }
+
       .shopping-cart-product {
+        
         @include product-card($secondary, 1.25rem, 100px);
 
         @media (min-width: 810px) and (max-width: 1090px){

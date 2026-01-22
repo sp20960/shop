@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showFilteredProducts();
       return;
     }
-    const products = await fetchDataGet("/student023/shop/backend/endpoints/db_product_search.php?productName=" + userFilter, true);
+    const products = await fetchDataGet("/student023/shop/backend/endpoints/db_product_search.php?productName=" + userFilter, true, true);
     showFilteredProducts(products)
   }
 

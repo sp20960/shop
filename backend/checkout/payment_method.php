@@ -39,7 +39,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/payment_methods
 
             <hr class="my-10">
 
-            <form action="../db/orders/db_order_insert.php" id="payment-form" method="POST" class="flex flex-col pt-5 gap-10">
+            <form action="./tpv.php" id="payment-form" method="POST" class="flex flex-col pt-5 gap-10">
               <?php
                 foreach($paymentMethods as $paymentMethod):
               ?>

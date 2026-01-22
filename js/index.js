@@ -175,6 +175,14 @@ document.addEventListener("DOMContentLoaded", () => {
   prevArrow.addEventListener("click", () => {
     prevImage();
   });
+
+  // function autoCarrousel (){
+  //   setTimeout(() => {
+  //     nextImage();
+  //     autoCarrousel();
+  //   }, 3000)
+  // }
   
+  // autoCarrousel();
   loadProducts();
 });

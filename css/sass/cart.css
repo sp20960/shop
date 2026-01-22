@@ -472,6 +472,9 @@ main > div #shopping-cart-products {
   padding: 20px;
   gap: 30px;
 }
+main > div #shopping-cart-products h1 {
+  text-align: center;
+}
 main > div #shopping-cart-products .shopping-cart-product {
   background-color: #F0E9E9;
   border-radius: 10px;

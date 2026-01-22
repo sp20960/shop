@@ -56,7 +56,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shipping_method
         </div>
 
         <div class="flex justify-center mb-10">
-          <button class="bg-accent flex items-center gap-5 px-15 py-5 rounded-2xl cursor-pointer text-4xl font-bold font-latobold" form="shipping-form">Continuar<i class="fa-regular fa-arrow-right pt-1.5"></i></button>
+          <button class="bg-accent flex items-center gap-5 px-15 py-5 rounded-2xl cursor-pointer text-2xl font-bold font-latobold" form="shipping-form">Continuar<i class="fa-regular fa-arrow-right pt-1.5"></i></button>
         </div>
 
     </section>

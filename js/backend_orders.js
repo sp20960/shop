@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       listOrders.innerHTML = 
       orders.map((order) =>( 
         `
-          <div class="bg-primary/90 border text-text border-gray-200 rounded-xl p-4 shadow-sm mb-4 min-h-60 flex flex-col min-w-60">
+          <div class="bg-primary/90 border text-text border-gray-200 rounded-xl p-4 shadow mb-4 min-h-60 flex flex-col w-110">
         
         <div class="flex flex-col-reverse gap-2 items-start mb-2">
             <span class="text-lg font-bold">#${order.orderNumber}</span>
