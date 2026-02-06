@@ -12,14 +12,14 @@
 </head>
 <body>
     <header>
-        <i class="fa-solid fa-bars fa-2xl"></i>
-        <img src="assets/images/brand/logo_claro.png" alt="logo">
-         <nav>
-            <i class="fa-solid fa-x fa-2xl"></i>
-            <a href="">Inicio</a>
-            <p  id="dropdown-menu-caret">Tienda
+        <i class="fa-solid fa-bars fa-2xl" aria-label="icono menu hamburguesa"></i>
+        <a href="index.html"><img src="assets/images/brand/logo_claro.png" alt="logo riff store"></a>
+         <nav aria-expanded="false">
+            <i class="fa-solid fa-x fa-2xl" id="icon-close-menu" aria-label="icono cerrar navegador"></i>
+            <a href="index.html">Inicio</a>
+            <a href="views/productos.html" id="dropdown-menu-caret">Tienda
                 <i class="fa-solid fa-caret-down"></i>
-            </p>
+            </a>
             <div id="dropdown-content" class="dropdown-content">
                 <a href="">Guitarras electricas</a>
                 <a href="">Guitarras acústicas</a>
@@ -28,20 +28,20 @@
             <a href="">Novedades</a>
         </nav>
         <form action="#">
-            <input type="search" name="search" id="">
-            <i class="fa-solid fa-search fa-xl"></i>
+            <input type="search" name="search" id="" aria-label="barra de busqueda">
+            <i class="fa-solid fa-search fa-xl" aria-label="icono buscar"></i>
         </form>
-        <a href="backend/login.php"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
-        <a href="./views/shopping_cart.html"><i class="fa-solid fa-cart-shopping fa-2xl"></i></a>
+        <a href="backend/login.php"><i class="fa-solid fa-circle-user fa-2xl" aria-label="icono usuario"></i></a>
+        <a href="./views/shopping_cart.html"><i class="fa-solid fa-cart-shopping fa-2xl" aria-label="icono carrito de compra"></i></a>
     </header>
     <main>
         <h1>Bienvenido a Riff Store!</h1>
         <section class="carousel">
-            <img src="assets/images/carousel/1.png" alt="Imagen 1">
-            <img src="assets/images/carousel/2.png" alt="Imagen 2">
-            <img src="assets/images/carousel/3.png" class="active" alt="Imagen 3">  
-            <button class="btn prev">&#10094;</button>
-            <button class="btn next">&#10095;</button>
+            <img src="assets/images/carousel/1.png" alt="Imagen 1 carousel">
+            <img src="assets/images/carousel/2.png" alt="Imagen 2 carousel">
+            <img src="assets/images/carousel/3.png" class="active" alt="Imagen 3 carousel">  
+            <button aria-label="anterior imagen carousel" class="btn prev">&#10094;</button>
+            <button aria-label="siguiente imagen carousel" class="btn next">&#10095;</button>
         </section>
         <h2>¡Ofertas de la semana!</h2>
         <section id="list-products">
@@ -67,19 +67,19 @@
         </div>
         <hr>
         <div class="container-social-media">
-            <i class="fa-brands fa-x-twitter fa-xl"></i>
-            <i class="fa-brands fa-instagram fa-xl"></i>
-            <i class="fa-brands fa-youtube fa-xl"></i>
+            <i class="fa-brands fa-x-twitter fa-xl" aria-label="icono twitter"></i>
+            <i class="fa-brands fa-instagram fa-xl" aria-label="icono instagram"></i>
+            <i class="fa-brands fa-youtube fa-xl" aria-label="icono youtube"></i>
         </div>
         <hr>
         <div class="container-payment-methods">
             <h2>Métodos de pago</h2>
-            <img src="assets/images/payment_methods/visa.png" alt="">
-            <img src="assets/images/payment_methods/mastercard.png" alt="">
-            <img src="assets/images/payment_methods/google.png" alt="">
-            <img src="assets/images/payment_methods/apple.png" alt="">
-            <img src="assets/images/payment_methods/paypal.png" alt="">
-            <img src="assets/images/payment_methods/amex.png" alt="">
+            <img src="assets/images/payment_methods/visa.png" alt="imagen visa">
+            <img src="assets/images/payment_methods/mastercard.png" alt="imagen mastercard">
+            <img src="assets/images/payment_methods/google.png" alt="imagen google pay">
+            <img src="assets/images/payment_methods/apple.png" alt="imagen apple pay">
+            <img src="assets/images/payment_methods/paypal.png" alt="imagen paypal">
+            <img src="assets/images/payment_methods/amex.png" alt="imagen american express">
         </div>
         <hr>
         <div class="container-policies">
@@ -87,9 +87,54 @@
             <a href="">Preferencia de cookies</a>
         </div>
         <hr>
-        <small><i class="fa-regular fa-copyright"></i> Riff Store</small>
+        <small><i class="fa-regular fa-copyright" aria-label="icono copyright"></i> Riff Store</small>
+        <i class="fa-solid fa-universal-access" id="universal-access-btn"></i>
+        <div id="access-content">
+            <div>
+              <h3>Opciones de accesibildad</h3>
+              <i class="fa-solid fa-x" id="icon-close-access"></i>
+            </div>
+            
+            <div>
+              <button id="access-minus-text">
+                <i class="fa-solid fa-minus"></i>
+                <p>Minimizar texto</p>
+              </button>
+              <button id="access-plus-text">
+                <i class="fa-solid fa-plus"></i>
+                <p>Maximizar texto</p>
+              </button>
+              <button id="access-plus-line-height">
+                <i class="fa-solid fa-plus"></i>
+                <p>Maximizar interlineado</p>
+              </button>
+              <button id="access-minus-line-height">
+                <i class="fa-solid fa-minus"></i>
+                <p>Minimizar interlineado</p>
+              </button>
+              <button id="access-saturation">
+                <i class="fa-solid fa-circle-half-stroke"></i>
+                <p>Saturación</p>
+              </button>
+              <button id="access-grayscale">
+                <i class="fa-solid fa-fill"></i>
+                <p>Escala de grises</p>
+              </button>
+              <button id="access-light">
+                <i class="fa-solid fa-sun"></i>
+                <p>Modo claro</p>
+              </button>
+              <button id="access-dark">
+                <i class="fa-solid fa-moon"></i>
+                <p>Modo oscuro</p>
+              </button>
+            </div>
+            <button id="access-reset">Resetear valores por defecto</button>
+          </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
     <script src="js/index.js"></script>
     <script src="js/common.js"></script>
+    <script src="js/accessibility.js"></script>
 </body>
 </html>

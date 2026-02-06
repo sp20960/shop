@@ -1,16 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const barsMenu = document.querySelector('.fa-bars');
-    const closeBtn = document.querySelector('.fa-x');
+    const iconCloseMenu = document.getElementById('icon-close-menu');
     const nav = document.querySelector('header nav');
     const dropwDownMenuCaret = document.getElementById('dropdown-menu-caret');
     const dropDownMenu = document.getElementById('dropdown-content');
-    const logo = document.querySelector('img[alt="logo"]');
-    
+
     barsMenu.addEventListener('click', () => {  
         nav.style.display = 'flex'
     });
 
-    closeBtn.addEventListener('click', () => {
+    iconCloseMenu.addEventListener('click', () => {
         nav.style.display = 'none'
     });
 
@@ -41,8 +40,4 @@ document.addEventListener('DOMContentLoaded', () => {
             dropDownMenu.style.display = 'none '
         
     });
-
-    logo.addEventListener('click', () => {
-        location.href = "/student023/shop/index.html"
-    })
 });

@@ -11,7 +11,8 @@ if (isset($_POST['productId'])) {
   $product = returnProductById($productId);
 
   echo '
-    <div class="shopping-cart-product" data-product-id="'.$productId.'", data-product-price="'.$product[0]['pricePerUnit'].'">
+    <div class="shopping-cart-product" data-product-id="'.$productId.'", data-product-price="'.$product[0]['pricePerUnit'].'"
+    data-quantity="'.$quantity.'" >
                     <div>
                         <img src="'.$product[0]['imagePath'].'" alt="" width="100">
                     </div>
@@ -23,7 +24,7 @@ if (isset($_POST['productId'])) {
                         <div>
                             <i class="fa-solid fa-trash fa-xl"></i>
                             <div>
-                                <select id="quantity">
+                                <select class="quantity">
                                     <option value="1" '.($quantity == 1 ? "selected": "").'>1</option>
                                     <option value="2" '.($quantity == 2 ? "selected": "").'>2</option>
                                     <option value="3" '.($quantity == 3 ? "selected": "").'>3</option>

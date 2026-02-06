@@ -13,19 +13,19 @@
 <body>
     <header class="header sm:justify-evenly lg:justify-center lg:gap-[70px]">
 
-        <i class="fa-solid fa-bars fa-2xl icon lg:hidden!"></i>
+        <i class="fa-solid fa-bars fa-2xl icon lg:hidden!" aria-label="icono menu hamburguesa"></i>
 
-        <img src="/student023/shop/assets/images/brand/logo_claro.png" alt="logo" class="w-8 cursor-pointer">
+        <a href="../index.html"><img src="../assets/images/brand/logo_claro.png" alt="logo riff store" class="w-8 cursor-pointer"></a>
 
         <nav class="nav-mobile
                     lg:bg-transparent lg:static lg:flex lg:flex-row lg:gap-10 lg:p-0 
                     lg:top-auto lg:right-auto lg:h-auto lg:w-auto lg:z-0">
 
             <div class="flex justify-end">
-                <i class="fa-solid fa-x fa-2xl cursor-pointer lg:hidden!"></i>
+                <i class="fa-solid fa-x fa-2xl cursor-pointer lg:hidden!" aria-label="icono cerrar menu"></i>
             </div>
 
-            <a href="" class="link sm:text-5xl lg:text-xl">Inicio</a>
+            <a href="../index.html" class="link sm:text-5xl lg:text-xl">Inicio</a>
 
             <p id="dropdown-menu-caret"
                class="text-[2rem] cursor-pointer font-latobold sm:text-5xl lg:text-xl lg:relative">
@@ -48,8 +48,8 @@
             <i class="fa-solid fa-search fa-xl absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2"></i>
         </form>
 
-       <a href="../backend/login.php"><i class="fa-solid fa-circle-user fa-2xl icon"></i></a>
-        <a href="../backend/customer/my_shopping_cart.php"><i class="fa-solid fa-cart-shopping fa-2xl icon"></i></a>
+       <a href="../backend/login.php"><i class="fa-solid fa-circle-user fa-2xl icon" aria-label="icono usuario"></i></a>
+        <a href="./shopping_cart.html"><i class="fa-solid fa-cart-shopping fa-2xl icon" aria-label="icono carrito de compra"></i></a>
     </header>
 
     <main class="flex flex-col pt-[115px] lg:flex-row lg:items-center lg:pt-[87px]">

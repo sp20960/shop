@@ -4,7 +4,10 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/admin_hea
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shopping_cart/db_shopping_cart_select.php');
 
 if(isset($_SESSION['user']['transactionId'])):
-
+  unset($_SESSION['user']['insertOrder']);
+  unset($_SESSION['user']['paymentId']);
+  unset($_SESSION['user']['addressId']);
+  unset($_SESSION['user']['shippingId']);
 ?>
 <main class="w-screen">
   <section class="py-24 relative">

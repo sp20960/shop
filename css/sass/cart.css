@@ -11,6 +11,7 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
+  font-family: "LatoBold";
 }
 
 header {
@@ -168,6 +169,10 @@ header form i {
 }
 header a {
   color: #f0f0f0;
+}
+
+.icon {
+  color: white;
 }
 
 footer {
@@ -736,6 +741,7 @@ main #list-featured-products .card {
 }
 main #list-featured-products .card img {
   width: 130px;
+  height: 130px;
 }
 main #list-featured-products .card div:nth-of-type(1) {
   display: flex;

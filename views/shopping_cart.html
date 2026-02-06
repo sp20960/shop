@@ -15,17 +15,17 @@
 
     <header>
 
-        <i class="fa-solid fa-bars fa-2xl"></i>
+        <i class="fa-solid fa-bars fa-2xl" aria-label="icono menu hamburguesa"></i>
 
-        <img src="/student023/shop/assets/images/brand/logo_claro.png" alt="logo">
+        <a href="../index.html"><img src="../assets/images/brand/logo_claro.png" alt="logo riff store"></a>
 
         <nav>
 
             <div>
-                <i class="fa-solid fa-x fa-2xl"></i>
+                <i class="fa-solid fa-x fa-2xl" aria-label="icono cerrar menu"></i>
             </div>
 
-            <a href="">Inicio</a>
+            <a href="../index.html">Inicio</a>
 
             <p id="dropdown-menu-caret">
                 Tienda <i class="fa-solid fa-caret-down"></i>
@@ -41,13 +41,13 @@
         </nav>
 
         <form action=" #">
-                    <input type="search" name="search" />
-                    <i class="fa-solid fa-search fa-xl"></i>
+                    <input type="search" name="search" aria-label="barra de busqueda"/>
+                    <i class="fa-solid fa-search fa-xl" aria-label="icono busqueda"></i>
                     </form>
 
-                    <a href="../backend/login.php"><i class="fa-solid fa-circle-user fa-2xl"></i></a>
+                    <a href="../backend/login.php"><i class="fa-solid fa-circle-user fa-2xl" aria-label="icono usuario"></i></a>
                     <a href="./shopping_cart.html"><i
-                            class="fa-solid fa-cart-shopping fa-2xl"></i></a>
+                            class="fa-solid fa-cart-shopping fa-2xl" aria-label="icono carrito de compra"></i></a>
     </header>
 
     <main>
@@ -62,9 +62,9 @@
             <!-- SECTION SUBTOTAL -->
             <section>
                 <div>
-                    <h2>Total: <span id="subtotal">2345€</span></h2>
+                    <h2>Total: <span id="subtotal">0€</span></h2>
                     <small>Todos los precios incluyen <span>IVA</span></small>
-                    <a href="../backend/checkout/address.php">IR A CAJA <i class="fa-solid fa-arrow-right"></i></a>
+                    <a id="buy-button" href="../backend/checkout/address.php">IR A CAJA <i class="fa-solid fa-arrow-right"></i></a></>
                 </div>
             </section>
         </div>
@@ -106,9 +106,9 @@
 
         <div>
 
-            <i class=" fa-brands fa-x-twitter fa-xl"></i>
-                <i class="fa-brands fa-instagram fa-xl"></i>
-                <i class="fa-brands fa-youtube fa-xl"></i>
+            <i class=" fa-brands fa-x-twitter fa-xl" aria-label="icono twitter"></i>
+                <i class="fa-brands fa-instagram fa-xl" aria-label="icono instagram"></i>
+                <i class="fa-brands fa-youtube fa-xl" aria-label="icono youtube"></i>
         </div>
 
         <hr>
@@ -118,12 +118,12 @@
             <h2>Métodos de pago</h2>
 
             <div>
-                <img src="/student023/shop/assets/images/payment_methods/visa.png">
-                <img src="/student023/shop/assets/images/payment_methods/mastercard.png">
-                <img src="/student023/shop/assets/images/payment_methods/google.png">
-                <img src="/student023/shop/assets/images/payment_methods/paypal.png">
-                <img src="/student023/shop/assets/images/payment_methods/amex.png">
-                <img src="/student023/shop/assets/images/payment_methods/apple.png">
+                <img src="/student023/shop/assets/images/payment_methods/visa.png" alt="imagen visa">
+                <img src="/student023/shop/assets/images/payment_methods/mastercard.png" alt="imagen mastercard">
+                <img src="/student023/shop/assets/images/payment_methods/google.png" alt="imagen google pay">
+                <img src="/student023/shop/assets/images/payment_methods/paypal.png" alt="imagen paypal">
+                <img src="/student023/shop/assets/images/payment_methods/amex.png" alt="imagen american express">
+                <img src="/student023/shop/assets/images/payment_methods/apple.png" alt="imagen apple pay">
             </div>
         </div>
 
@@ -138,7 +138,7 @@
         <hr>
 
         <small>
-            <i class="fa-regular fa-copyright"></i> Riff Store
+            <i class="fa-regular fa-copyright" aria-label="icono copyright"></i> Riff Store
         </small>
     </footer>
 

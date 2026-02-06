@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevArrow = document.querySelector(".prev");
   const images = document.querySelectorAll(".carousel img");
   const listProducts = document.getElementById('list-products');
-  let shoppingCartProducts = JSON.parse(localStorage.getItem('products')) || {products:[]}
+  let shoppingCartProducts = JSON.parse(localStorage.getItem('products')) || { products: [] }
 
 
   async function loadProducts() {
@@ -19,24 +19,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function checkSession() {
     try {
-        const response = await fetch("/student023/shop/backend/endpoints/check_session.php");
-        const result = await response.text();
-        if(result === "false") {
-          return false;
-        }
-        return true;
+      const response = await fetch("/student023/shop/backend/endpoints/check_session.php");
+      const result = await response.text();
+      if (result === "false") {
+        return false;
+      }
+      return true;
     } catch (error) {
-        
+
     }
   }
 
   function showProducts(products) {
-    if(products != null && products.length != 0){
+    if (products != null && products.length != 0) {
       listProducts.innerHTML = products
-      .map((product) => 
-        `
+        .map((product) =>
+          `
           <article class="card" data-product-id="${product.productId}">
-                <img src="${product.imagePath}" alt="">
+              <a href="views/product_detail.html?id=${product.productId}">
+                <img src="${product.imagePath}" alt="imagen del producto">
                 <div class="card-stars">
                     <i class="fa-regular fa-star fa-sm"></i>
                     <i class="fa-regular fa-star fa-sm"></i>
@@ -49,44 +50,33 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h3>${product.productName}</h3>
                     <p>${product.pricePerUnit} €</p>
                 </div>
-                <div class="card-buy">
-                    <i class="fa-solid fa-cart-shopping"></i>
+              </a>
+                <div class="card-buy" aria-label="añadir al carrito">
+                    Añadir
                 </div>
             </article>
         `
-      ).join("");
-      addEventProducts();
+        ).join("");
       addEventAddToCart()
       addEventCardBuy();
-    } else{
+    } else {
       listProducts.innerHTML = "<h1>¡No hay productos disponibles!</h1>";
     }
   }
 
-  function addEventProducts() {
-    const products = document.querySelectorAll('.card img');
-
-    products.forEach((product) => {
-      product.addEventListener('click', (e) => {
-          const productId = product.parentElement.dataset.productId;
-          location.href = `views/product_detail.html?id=${productId}`;
-      })
-    })
-  }
-
-  function addEventAddToCart(){
+  function addEventAddToCart() {
     const buttons = document.querySelectorAll('.card-buy');
-    
+
     buttons.forEach((button) => {
       button.addEventListener('click', async (e) => {
         const productId = button.parentElement.dataset.productId;
-        const session =  await checkSession();
-        if(session){
+        const session = await checkSession();
+        if (session) {
           addToShoppingCart(productId);
         } else {
           addProductLocalStorage(productId);
         }
-        
+
       })
     })
   }
@@ -96,39 +86,39 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response = fetch(endpointnUrl);
     } catch (error) {
-      
+
     }
   }
 
   function addProductLocalStorage(productId) {
-      let productExists = false;
+    let productExists = false;
 
-      shoppingCartProducts.products.forEach((product) => {
-        if(product.productId === productId){
-          let quantity = +product.qty;
-          product.qty = quantity + 1;
-          productExists = true;
-        }
-      });
-
-      if(!productExists){
-        shoppingCartProducts.products.push({productId, qty: 1});
+    shoppingCartProducts.products.forEach((product) => {
+      if (product.productId === productId) {
+        let quantity = +product.qty;
+        product.qty = quantity + 1;
+        productExists = true;
       }
-      localStorage.setItem("products", JSON.stringify(shoppingCartProducts));
+    });
+
+    if (!productExists) {
+      shoppingCartProducts.products.push({ productId, qty: 1 });
+    }
+    localStorage.setItem("products", JSON.stringify(shoppingCartProducts));
   }
 
   function addEventCardBuy() {
-     document.querySelectorAll('.card-buy').forEach((btn) => {
+    document.querySelectorAll('.card-buy').forEach((btn) => {
       btn.addEventListener('click', () => {
-          btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+        btn.innerHTML = '<i class="fa-solid fa-check"></i>';
 
-          setTimeout(() => {
-              btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i>';
-          }, 1500);
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i>';
+        }, 1500);
       })
     });
   }
- 
+
   // CAROUSEL FUNCTIONALITY
   function nextImage() {
     let actualIndex;
@@ -182,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //     autoCarrousel();
   //   }, 3000)
   // }
-  
+
   // autoCarrousel();
   loadProducts();
 });

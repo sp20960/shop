@@ -1,1 +1,41 @@
-{"info":[{"LocalObservationDateTime":"2026-01-12T17:06:00+01:00","EpochTime":1768233960,"WeatherText":"Partly sunny","WeatherIcon":3,"HasPrecipitation":false,"PrecipitationType":null,"IsDayTime":true,"Temperature":{"Metric":{"Value":13.9,"Unit":"C","UnitType":17},"Imperial":{"Value":57,"Unit":"F","UnitType":18}},"MobileLink":"http://www.accuweather.com/en/es/biniancolla/1466169/current-weather/1466169?lang=en-us","Link":"http://www.accuweather.com/en/es/biniancolla/1466169/current-weather/1466169?lang=en-us"}]}
+{
+  "sellerId": 1,
+  "products": [
+    {
+      "product_id": 48,
+      "product_name": "beyerdynamic DT 880 Premium",
+      "description": "Auriculares Bluetooth con cancelaci\u00f3n activa de ruido. Ofrecen sonido est\u00e9reo de alta calidad, bater\u00eda de larga duraci\u00f3n (hasta 30 horas), micr\u00f3fono integrado para llamadas y dise\u00f1o ergon\u00f3mico para uso prolongado.",
+      "product_price": "149.99",
+      "quantity": 25,
+      "category_id": 3,
+      "product_image": "\/student002\/shop\/assets\/images\/products\/product21.png"
+    },
+    {
+      "product_id": 49,
+      "product_name": "Controlador MIDI",
+      "description": "Controlador MIDI con teclado de 49 teclas sensibles a la velocidad. Compatible con los principales programas de producci\u00f3n musical (DAW). Incluye pads, ruedas de modulaci\u00f3n y conexi\u00f3n USB plug and play.",
+      "product_price": "89.50",
+      "quantity": 15,
+      "category_id": 3,
+      "product_image": "\/student002\/shop\/assets\/images\/products\/product22.png"
+    },
+    {
+      "product_id": 50,
+      "product_name": "Interfaz de audio USB",
+      "description": "Interfaz de audio USB con entradas XLR y jack para micr\u00f3fono e instrumentos. Permite grabaci\u00f3n de sonido en alta resoluci\u00f3n, baja latencia y calidad profesional para estudios dom\u00e9sticos.",
+      "product_price": "149.00",
+      "quantity": 10,
+      "category_id": 3,
+      "product_image": "\/student002\/shop\/assets\/images\/products\/product23.png"
+    },
+    {
+      "product_id": 51,
+      "product_name": "Behringer AIRPLAY GUITAR AG10 ",
+      "description": "Transmisor y receptor inal\u00e1mbrico Plug-N-Play dise\u00f1ado espec\u00edficamente para guitarra,Latencia ultrabaja de alrededor de 5 ms para un rendimiento m\u00e1ximo,Bater\u00eda de litio incorporada de 750 mAh con hasta 6,5 \u200b\u200bhoras de duraci\u00f3n, Alcance m\u00e1ximo 30 m (100",
+      "product_price": "57.20",
+      "quantity": 20,
+      "category_id": 3,
+      "product_image": "\/student002\/shop\/assets\/images\/products\/product24.png"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-async function fetchDataGet(url, returnValue, isJson) {
+async function fetchDataGet(url, returnValue = false, isJson) {
   try {
     const response = await fetch(url)
 
@@ -109,3 +109,11 @@ function showMessage() {
   }
 
 }
+
+function getMonths() {
+      return [
+          'January', 'February', 'March', 'April',
+          'May', 'June', 'July', 'August',
+          'September', 'October', 'November', 'December'
+      ];
+  }

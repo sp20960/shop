@@ -25,5 +25,21 @@
             </div>
           </div>
         </div>
+
+        <div class="mt-15 flex justify-between w-full">
+          <div class="w-1/2 flex flex-col items-center">
+            <select id="bar-chart-year" class=" border-b text-2xl px-5 font-latobold shadow-2xl">
+              <option value="2025">2025</option>
+              <option value="2026" selected>2026</option>
+            </select>
+            <canvas class="w-30" id="bar-chart"></canvas>
+          </div>
+          <div class="w-1/2 h-100 flex justify-center">
+            <canvas class="w-30" id="pie-chart"></canvas>
+          </div>
+        </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+    <script src="../js/utils.js"></script>
+    <script type="module" src="../js/backend_index.js"></script>
     <?php require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/footer.php'); ?>

@@ -5,11 +5,13 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shopping_cart/d
 $_SESSION['user']['insertOrder'] = true;
 ?>
 
-<main class="flex gap-5 bg-secondary p-10 w-full">
-  <div id="messages-container" class="absolute top-1 left-[50%] w-[calc(100vw-360px)] flex flex-col gap-2">
-    
+<main class="flex flex-col gap-5 bg-secondary p-10 w-full">
+  <div class="flex justify-center w-full left-1">
+     <div id="messages-container" class="flex flex-col gap-2">
+       
+    </div>
   </div>
-  <div class="w-full flex flex-row gap-5">
+  <div class="w-full flex flex-row gap-5 h-full items-center">
     <div class="flex flex-col justify-center gap-5 w-[50%]">
       <?php
       if (isset($products[0]['productId'])) {

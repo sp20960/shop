@@ -1,34 +1,35 @@
 <?php 
 session_start();
+require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/security/check_session.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/guest_header.php'); 
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/payment_methods/db_select_payment_methods.php'); 
-
+$_SESSION['user']['shippingId'] = $_POST['shippingId'];
 ?>
 
 <main class="flex flex-col items-center">
-    <section class="flex justify-center pt-20 gap-5 w-1/2">
-        <div class="border border-primary h-13 rounded-full px-2 bg-accent">
+    <section class="flex justify-center pt-20 gap-5 w-40 sm:w-70 lg:w-1/2" >
+       <div class="border border-primary h-13 rounded-full px-2 bg-accent">
             <i class="fa-solid fa-lock fa-2xl mt-6"></i>
         </div>
-        <hr class="w-70 mt-6">
+        <hr class="hidden w-70 mt-6 sm:block">
         <div class="border border-primary h-13 rounded-full px-2 bg-accent">
             <i class="fa-solid fa-location-dot fa-2xl mt-6"></i>
         </div>
-        <hr class="w-70 mt-6">
+        <hr class="hidden w-70 mt-6 sm:block">
         <div class="border border-primary h-13 rounded-full px-2 bg-accent">
             <i class="fa-solid fa-truck fa-2xl mt-6"></i>
         </div>
-        <hr class="w-70 mt-6">
+        <hr class="hidden w-70 mt-6 sm:block">
         <div class="border border-primary h-13 rounded-full px-2 bg-accent">
             <i class="fa-solid fa-credit-card fa-2xl mt-6"></i>
         </div>
-        <hr class="w-70 mt-6">
+        <hr class="hidden w-70 mt-6 sm:block">
         <div class="border border-primary h-13 rounded-full px-2">
             <i class="fa-solid fa-clipboard-list fa-2xl mt-6"></i>
         </div>
     </section>
 
-    <section class="mt-10 w-1/2">
+    <section class="mt-10 w-full px-5 lg:w-1/2 lg:px-0">
         <h2 class="font-latobold text-4xl">¿Como quiere pagar?</h2>
 
         <div class="pt-10">
@@ -44,7 +45,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/payment_methods
                 foreach($paymentMethods as $paymentMethod):
               ?>
                 <div class="flex gap-5 border border-primary rounded-xl p-10 shadow-2xl">
-                  <input type="radio" name="paymentMethod" id="<?= $paymentMethod['name'] ?>" value="<?= $paymentMethod['paymentId'] ?>" required>
+                  <input type="radio" name="paymentId" id="<?= $paymentMethod['name'] ?>" value="<?= $paymentMethod['paymentId'] ?>" required>
                   <label for="<?= $paymentMethod['name'] ?>" class="text-xl font-bold"><?= $paymentMethod['name'] ?></label>
                 </div>
               <?php
@@ -56,7 +57,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/payment_methods
         </div>
 
         <div class="flex justify-center mb-10">
-          <button name="submit" class="bg-accent flex items-center gap-5 px-15 py-5 rounded-4xl cursor-pointer text-2xl font-bold font-latobold" form="payment-form">Continuar<i class="fa-regular fa-arrow-right pt-1.5"></i></button>
+          <button name="submit" class="bg-accent flex items-center gap-5 px-15 py-5 rounded-2xl cursor-pointer text-2xl font-bold font-latobold" form="payment-form">Continuar<i class="fa-regular fa-arrow-right pt-1.5"></i></button>
         </div>
 
     </section>

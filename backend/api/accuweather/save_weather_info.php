@@ -1,5 +1,4 @@
 <?php
-
 require_once $_SERVER['DOCUMENT_ROOT'] . '/student023/shop/vendor/autoload.php';
 
 use Dotenv\Dotenv;
@@ -25,7 +24,7 @@ if ($response_json) {
   $fileHandle = fopen($file, 'a+');
   fwrite($fileHandle, $response_json);
   fclose($fileHandle);
-
+  
   include($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/config/db_connect.php');
   $sql = "INSERT INTO `023_weather_records` (jsonData)
           VALUES ('$response_json');";

@@ -7,9 +7,12 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/products_
 
 
 <main class="flex flex-col gap-5 bg-secondary p-10 w-full">
-    <div id="messages-container" class="absolute top-1 left-[50%] w-[calc(100vw-360px)] flex flex-col gap-2">
+  <div class="flex justify-center w-full left-1">
+     <div id="messages-container" class="flex flex-col gap-2">
        
     </div>
+  </div>
+   
     <div class="flex justify-end">
         <button class="bg-btn text-text p-3 rounded-md cursor-pointer hover:opacity-90" id="add-product-btn">Add product</button>
     </div>

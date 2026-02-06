@@ -66,4 +66,31 @@ function returnProducts()
   mysqli_close($connect);
   return mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
+
+function insertProductVendor($product, $vendorId) {
+
+require $_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php';
+  
+  $productCode = $product['product_id'];
+  $productName = $product['product_name'];
+  $description = $product['description'];
+  $productUnitPrice = $product['product_price'];
+  
+  $productImage = 'https://remotehost.es'.$product['product_image'];
+
+  $sql = "INSERT INTO `023_products`(`vendorId`, `productCode`, `productName`, `description`, `pricePerUnit`, `categoryId`, `imagePath`) 
+          SELECT
+          '$vendorId',
+          '$productCode', 
+          '$productName', 
+          '$description', 
+          $productUnitPrice, 
+          categoryId, 
+          '$productImage'
+          FROM `023_categories`
+          WHERE parentCategory = 'Vendor';";
+  
+  mysqli_query($connect, $sql);
+  mysqli_close($connect);
+}
 ?>

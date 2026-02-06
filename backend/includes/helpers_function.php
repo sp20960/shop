@@ -9,7 +9,7 @@ function getWeatherInfo(){
 
   $result = mysqli_query($connect, $sql);
   $data = mysqli_fetch_assoc($result);
-
+  
   return json_decode($data['jsonData'], true);
 }
 

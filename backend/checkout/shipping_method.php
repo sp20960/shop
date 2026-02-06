@@ -1,34 +1,35 @@
 <?php 
 session_start();
+require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/security/check_session.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/guest_header.php'); 
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shipping_methods/db_select_shipping_methods.php'); 
-
+$_SESSION['user']['addressId'] = $_POST['addressId'];
 ?>
 
 <main class="flex flex-col items-center">
-    <section class="flex justify-center pt-20 gap-5 w-1/2">
+    <section class="flex justify-center pt-20 gap-5 w-50 sm:w-70 lg:w-1/2">
         <div class="border border-primary h-13 rounded-full px-2 bg-accent">
             <i class="fa-solid fa-lock fa-2xl mt-6"></i>
         </div>
-        <hr class="w-70 mt-6">
+        <hr class="hidden w-70 mt-6 sm:block">
         <div class="border border-primary h-13 rounded-full px-2 bg-accent">
             <i class="fa-solid fa-location-dot fa-2xl mt-6"></i>
         </div>
-        <hr class="w-70 mt-6">
+        <hr class="hidden w-70 mt-6 sm:block">
         <div class="border border-primary h-13 rounded-full px-2 bg-accent">
             <i class="fa-solid fa-truck fa-2xl mt-6"></i>
         </div>
-        <hr class="w-70 mt-6">
+        <hr class="hidden w-70 mt-6 sm:block">
         <div class="border border-primary h-13 rounded-full px-2">
             <i class="fa-solid fa-credit-card fa-2xl mt-6"></i>
         </div>
-        <hr class="w-70 mt-6">
+        <hr class="hidden w-70 mt-6 sm:block">
         <div class="border border-primary h-13 rounded-full px-2">
             <i class="fa-solid fa-clipboard-list fa-2xl mt-6"></i>
         </div>
     </section>
 
-    <section class="mt-10 w-1/2">
+    <section class="mt-10 w-full px-5 lg:w-1/2 lg:px-0">
         <h2 class="font-latobold text-4xl">¿Como se enviará su pedido?</h2>
 
         <div class="pt-10">
@@ -44,7 +45,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/db/shipping_method
                 foreach($shippingMethods as $shippingMethod):
               ?>
                 <div class="flex gap-5 border border-primary rounded-xl p-10 shadow-2xl">
-                  <input type="radio" name="shippingMethod" id="<?= $shippingMethod['name'] ?>" value="<?= $shippingMethod['paymentId'] ?>" required>
+                  <input type="radio" name="shippingId" id="<?= $shippingMethod['name'] ?>" value="<?= $shippingMethod['shippingId'] ?>" required>
                   <label for="<?= $shippingMethod['name'] ?>" class="text-xl font-bold"><?= $shippingMethod['name'] ?></label>
                 </div>
               <?php

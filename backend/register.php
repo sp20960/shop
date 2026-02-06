@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="/student023/shop/css/style.css">
   <link href="/student023/shop/assets/fontawesome/css/fontawesome.css" rel="stylesheet">
   <link href="/student023/shop/assets/fontawesome/css/all.css" rel="stylesheet">
-  <title>Detalle Producto</title>
+  <title>Registrarse</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 
     <i class="fa-solid fa-bars fa-2xl icon lg:hidden!"></i>
 
-    <img src="/student023/shop/assets/images/brand/logo_claro.png" alt="logo" class="w-8 cursor-pointer">
+    <a href="../index.html"><img src="../assets/images/brand/logo_claro.png" alt="logo riff store" class="w-8 cursor-pointer"></a>
 
     <nav class="nav-mobile
                     lg:bg-transparent lg:static lg:flex lg:flex-row lg:gap-10 lg:p-0 
@@ -95,7 +95,7 @@
               <label for="re-password" class="block text-sm/6 font-medium text-gray-100">Confirmar contraseña</label>
             </div>
             <div class="mt-2">
-              <input id="re-password" type="re-password" name="rePwd" required autocomplete="current-password" class="block rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-accent sm:text-sm/6 sm:w-90" />
+              <input type="password" id="re-password" type="re-password" name="rePwd" required autocomplete="current-password" class="block rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-accent sm:text-sm/6 sm:w-90" />
               <?php if(isset($errors['rePwd'])):?>
                 <small class="font-latobold text-red-400"><?= $errors['rePwd'] ?></small>
               <?php endif ?>

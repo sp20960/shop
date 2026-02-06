@@ -1,3 +1,8 @@
+<?php
+session_start();
+$_SESSION['user']['paymentId'] = $_POST['paymentId'];
+require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/guest_header.php'); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

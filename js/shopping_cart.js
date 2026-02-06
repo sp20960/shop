@@ -2,13 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const urlProductsEndpoint = "/student023/shop/backend/endpoints/db_products_enabled.php";
   const urlLoadShoppingCart = "/student023/shop/backend/endpoints/db_product_by_id.php";
   const listFeaturedProducts = document.getElementById('list-featured-products');
-  let productsToAdd = JSON.parse(localStorage.getItem('products'))
+  let productsToAdd = JSON.parse(localStorage.getItem('products')) || {products: []}
   let listShoppingCart = document.getElementById('shopping-cart-products')
+ 
 
   async function checkLocalStorage() {
     const logged = await isLogged();
 
-    if (productsToAdd && logged === 'false') {
+    if(!productsToAdd.products[0]) {
+      listShoppingCart.innerHTML = "<h1>No hay productos :(</h1>"
+    }
+
+    if (productsToAdd.products[0] && logged === 'false') {
       listShoppingCart.innerHTML = ""
       for (const product of productsToAdd.products) {
         showLocalStorageProducts(product);
@@ -16,7 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (productsToAdd && logged === 'true') {
-      fetchInsertShoppingCart();
+      for (const product of productsToAdd.products) {
+        fetchInsertShoppingCart(product.productId);
+      }
       localStorage.clear();
     }
 
@@ -26,11 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
-  async function fetchInsertShoppingCart() {
+  async function fetchInsertShoppingCart(productId) {
     try {
-      for (const product of productsToAdd.products) {
-        await fetchDataGet(`/student023/shop/backend/endpoints/db_shopping_cart_insert.php?productId=${product.productId}`, false);
-      }
+      await fetchDataGet(`/student023/shop/backend/endpoints/db_shopping_cart_insert.php?productId=${productId}`, false);
       fetchShoppingCartProducts();
     } catch (error) {
       console.log(error)
@@ -47,13 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
       : products;
       addEventTrash();
       updateSubtotal();
+      addEventQuantity();
     } catch (error) {
 
     }
   }
 
   function showLocalStorageProducts(product) {
-
     let params = "productId=" + encodeURIComponent(product.productId) +
       "&quantity=" + encodeURIComponent(product.qty);
 
@@ -63,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     xhttp.onreadystatechange = function () {
       if (xhttp.readyState == 4 && xhttp.status == 200) {
         listShoppingCart.innerHTML += xhttp.responseText;
+        addEventQuantity();
         addEventTrash();
         updateSubtotal();
       }
@@ -71,20 +77,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
+
   function updateSubtotal() {
     const products = document.querySelectorAll('.shopping-cart-product');
     const subtotalPrice = document.getElementById('subtotal');
 
     let subtotal = 0;
     products.forEach((product) => {
-      subtotal += +product.dataset.productPrice;
+      let pr = +product.dataset.productPrice;
+      let quantity = +product.dataset.quantity;
+      subtotal += pr * quantity;
     })
     subtotalPrice.innerText = subtotal + '€';
+  
+    
+  }
+
+  function addEventQuantity() {
+    let inputsQuantity = document.querySelectorAll('.quantity')
+    inputsQuantity.forEach((iq) => {
+      iq.addEventListener('change', async (e) => {
+        const logged = await isLogged();
+        if(logged === "false"){
+            let qty = e.target.value
+            e.target.parentElement.parentElement.parentElement.parentElement.dataset.quantity = qty
+            updateSubtotal();
+        }else {
+          await fetchInsertShoppingCart(e.target.parentElement.parentElement.parentElement.parentElement.dataset.productId)
+        }
+      })
+    })
   }
 
   function addEventTrash() {
     document.querySelectorAll('.fa-trash').forEach((trash) => {
-      trash.addEventListener('click', async () => {
+      trash.addEventListener('click', async (e) => {
 
         const logged = await isLogged()
         let productId = trash.parentElement.parentElement.parentElement.dataset.productId
@@ -93,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
           productsToAdd.products = productsToAdd.products.filter((product) => product.productId != productId);
           localStorage.setItem('products', JSON.stringify(productsToAdd));
           checkLocalStorage();
+          
         } else {
           fetchDeleteShoppingCartProduct(productId);
         }
@@ -125,9 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
       listFeaturedProducts.innerHTML = products
         .map((product) =>
           `
-           <article class="card sm:h-[320px]" data-product-id="${product.productId}">
-                <img class="w-[130px]" src="${product.imagePath}" alt="">
-                <div class="flex items-center justify-start w-full">
+           <article class="card" data-product-id="${product.productId}">
+                <img src="${product.imagePath}" alt="">
+                <div>
                     <i class="fa-regular fa-star fa-sm"></i>
                     <i class="fa-regular fa-star fa-sm"></i>
                     <i class="fa-regular fa-star fa-sm"></i>
@@ -135,12 +163,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     <i class="fa-regular fa-star fa-sm"></i>
                     <p class="text-base font-latobold">(0)</p>
                 </div>
-                <div class="text-start w-full">
-                    <h3 class="font-latobold text-xl">${product.productName}</h3>
-                    <p class="font-latobold text-2xl">${product.pricePerUnit} €</p>
+                <div>
+                    <h3>${product.productName}</h3>
+                    <p>${product.pricePerUnit} €</p>
                 </div>
-                <div class="flex justify-center bg-accent p-[5px] rounded-2xl w-full cursor-pointer">
-                    <i class="fa-solid icon fa-cart-shopping"></i>
+                <div class="card-buy" style="font-weight:800;">
+                    Añadir
                 </div>
             </article>
         `
@@ -158,25 +186,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     products.forEach((product) => {
       product.addEventListener('click', (e) => {
-        const productId = product.parentElement.dataset.productId;
-        location.href = `product_detail.html?id=${productId}`;
+          const productId = product.parentElement.dataset.productId;
+          location.href = `product_detail.html?id=${productId}`;
       })
     })
   }
 
-  function addEventAddToCart() {
+  function addEventAddToCart(){
     const buttons = document.querySelectorAll('.card-buy');
-
     buttons.forEach((button) => {
       button.addEventListener('click', async (e) => {
-        const productId = e.target.parentElement.dataset.productId;
-        const session = await checkSession();
-        if (session) {
+        const productId = button.parentElement.dataset.productId;
+        const session =  await isLogged();
+        if(session === "true"){
           addToShoppingCart(productId);
         } else {
           addProductLocalStorage(productId);
         }
-
+        
       })
     })
   }
@@ -184,27 +211,42 @@ document.addEventListener('DOMContentLoaded', () => {
   async function addToShoppingCart(productId) {
     const endpointnUrl = `/student023/shop/backend/endpoints/db_shopping_cart_insert.php?productId=${productId}`
     try {
-      const response = fetch(endpointnUrl)
-      const result = response
+      const response = fetch(endpointnUrl);
     } catch (error) {
-
+      
     }
   }
 
-  function addEventCardBuy() {
-    document.querySelectorAll('.card-buy').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+  function addProductLocalStorage(productId) {
+      let productExists = false;
 
-        // Después de 1.5 segundos vuelve al estado original
-        setTimeout(() => {
-          btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i>';
-        }, 1500);
+      productsToAdd.products.forEach((product) => {
+        if(product.productId === productId){
+          let quantity = +product.qty;
+          product.qty = quantity + 1;
+          productExists = true
+        }
+      });
+
+      if(!productExists){
+        productsToAdd.products.push({productId, qty: 1});
+      }
+      localStorage.setItem("products", JSON.stringify(productsToAdd));
+      checkLocalStorage();
+  }
+
+  function addEventCardBuy() {
+     document.querySelectorAll('.card-buy').forEach((btn) => {
+      btn.addEventListener('click', () => {
+          btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+
+          setTimeout(() => {
+              btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i>';
+          }, 1500);
       })
     });
-  }
+  } 
 
   loadRelatedProducts();
   checkLocalStorage();
-
 })

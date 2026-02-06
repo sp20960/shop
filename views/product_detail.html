@@ -13,19 +13,19 @@
 
     <header class="header sm:justify-evenly lg:justify-center lg:gap-[70px]">
 
-        <i class="fa-solid fa-bars fa-2xl icon lg:hidden!"></i>
+        <i class="fa-solid fa-bars fa-2xl icon lg:hidden!" aria-label="icono menu hamburguesa"></i>
 
-        <img src="/student023/shop/assets/images/brand/logo_claro.png" alt="logo" class="w-8 cursor-pointer">
+        <a href="../index.html"><img src="../assets/images/brand/logo_claro.png" alt="logo riff store" class="w-8 cursor-pointer"></a>
 
         <nav class="nav-mobile
                     lg:bg-transparent lg:static lg:flex lg:flex-row lg:gap-10 lg:p-0 
                     lg:top-auto lg:right-auto lg:h-auto lg:w-auto lg:z-0">
 
             <div class="flex justify-end">
-                <i class="fa-solid fa-x fa-2xl cursor-pointer lg:hidden!"></i>
+                <i class="fa-solid fa-x fa-2xl cursor-pointer lg:hidden!" aria-label="icono cerrar menu"></i>
             </div>
 
-            <a href="" class="link sm:text-5xl lg:text-xl">Inicio</a>
+            <a href="../index.html" class="link sm:text-5xl lg:text-xl">Inicio</a>
 
             <p id="dropdown-menu-caret"
                class="text-[2rem] cursor-pointer font-latobold sm:text-5xl lg:text-xl lg:relative">
@@ -45,11 +45,11 @@
         <form action="#" class="relative">
             <input type="search" name="search"
                    class="rounded-md h-9 border-0 w-44 bg-white sm:w-80 lg:w-[800px]">
-            <i class="fa-solid fa-search fa-xl absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2"></i>
+            <i class="fa-solid fa-search fa-xl absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2" aria-label="icono busqueda"></i>
         </form>
 
-       <a href="../backend/login.php"><i class="fa-solid fa-circle-user fa-2xl icon"></i></a>
-        <a href="./shopping_cart.html"><i class="fa-solid fa-cart-shopping fa-2xl icon"></i></a>
+       <a href="../backend/login.php"><i class="fa-solid fa-circle-user fa-2xl icon" aria-label="icono usuario"></i></a>
+        <a href="./shopping_cart.html"><i class="fa-solid fa-cart-shopping fa-2xl icon" aria-label="icono carrito de compra"></i></a>
     </header>
 
     <main class="px-5 lg:px-10">
@@ -63,11 +63,11 @@
         <!-- INFO -->
         <h1 class="text-2xl font-latobold">Ibanez RG550</h1>
         <section class="flex items-center pb-2 gap-1">
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star" aria-label="icono estrella valoracion"></i>
+            <i class="fa-regular fa-star" aria-label="icono estrella valoracion"></i>
+            <i class="fa-regular fa-star" aria-label="icono estrella valoracion"></i>
+            <i class="fa-regular fa-star" aria-label="icono estrella valoracion"></i>
+            <i class="fa-regular fa-star" aria-label="icono estrella valoracion"></i>
             <div>
                 <p class="pb-[2px]">(0)</p>
             </div>
@@ -75,13 +75,13 @@
         <section class="flex flex-col lg:flex-row lg:items-center">
             <!-- IMAGES SECTION -->
             <section class="flex flex-col items-center gap-2 lg:w-900">
-                <img id="actual-image" src="/student023/shop/assets/images/products/ibanez_rg550/imagen1.jpg" alt="">
+                <img id="actual-image" src="/student023/shop/assets/images/products/ibanez_rg550/imagen1.jpg" alt="imagen producto">
 
                 <div id="all-images" class="flex justify-center bg-secondary rounded-xl shadow flex-wrap w-full">
-                    <img class="active-image" src="/student023/shop/assets/images/products/ibanez_rg550/imagen1.png" width="80" height="80" alt="">
-                    <img src="/student023/shop/assets/images/products/ibanez_rg550/imagen2.png" width="80" height="80" alt="">
-                    <img src="/student023/shop/assets/images/products/ibanez_rg550/imagen3.png" width="80" height="80" alt="">
-                    <img src="/student023/shop/assets/images/products/ibanez_rg550/imagen4.png" width="80" height="80" alt="">
+                    <img class="active-image" src="/student023/shop/assets/images/products/ibanez_rg550/imagen1.png" width="80" height="80" alt="imagen detalle producto">
+                    <img src="/student023/shop/assets/images/products/ibanez_rg550/imagen2.png" width="80" height="80" alt="imagen detalle producto">
+                    <img src="/student023/shop/assets/images/products/ibanez_rg550/imagen3.png" width="80" height="80" alt="imagen detalle producto">
+                    <img src="/student023/shop/assets/images/products/ibanez_rg550/imagen4.png" width="80" height="80" alt="imagen detalle producto">
                 </div>
             </section>
 
@@ -93,7 +93,7 @@
                     <div class="flex py-5">
                         <form id="add-detail-product-shopping-cart" class="flex gap-2 items-center w-full">
                             <input class="w-13 bg-accent border border-primary p-2 rounded-4xl" type="number" id="quantity" value="1">
-                            <button class="bg-accent w-full rounded-2xl py-2 font-latobold border border-primary cursor-pointer" type="submit">A LA CESTA</button>
+                            <button class="bg-accent w-full rounded-2xl py-2 font-latobold border border-primary cursor-pointer" type="submit" aria-label="boton añadir cesta producto">A LA CESTA</button>
                         </form>
                     </div>
                 </div>
@@ -146,15 +146,15 @@
             <div class="flex flex-col gap-10 lg:grid lg:grid-cols-2">
                 <div class="review">
                     <div class="flex gap-2">
-                        <img class="object-cover" src="/student023/shop/assets/images/customers/default.png" alt="" width="50" height="50">
+                        <img class="object-cover" src="/student023/shop/assets/images/customers/default.png" alt="foto perfil usuario" width="50" height="50">
                         <div>
                             <h3 class="text-lg font-latobold">Guitarra muy buena por el precio</h3>
                             <div>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-regular fa-star" aria-label="estrella valoracion producto"></i>
                             </div>
                         </div>
                     </div>
@@ -162,15 +162,15 @@
                 </div>
                 <div class="review">
                     <div class="flex gap-2">
-                        <img class="object-cover" src="/student023/shop/assets/images/customers/default.png" alt="" width="50" height="50">
+                        <img class="object-cover" src="/student023/shop/assets/images/customers/default.png" alt="foto perfil usuario" width="50" height="50">
                         <div>
                             <h3 class="text-lg font-latobold">Guitarra muy buena por el precio</h3>
                             <div>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-regular fa-star" aria-label="estrella valoracion producto"></i>
                             </div>
                         </div>
                     </div>
@@ -178,15 +178,15 @@
                 </div>
                 <div class="review">
                     <div class="flex gap-2">
-                        <img class="object-cover" src="/student023/shop/assets/images/customers/default.png" alt="" width="50" height="50">
+                        <img class="object-cover" src="/student023/shop/assets/images/customers/default.png" alt="foto perfil usuario" width="50" height="50">
                         <div>
                             <h3 class="text-lg font-latobold">Guitarra muy buena por el precio</h3>
                             <div>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-regular fa-star" aria-label="estrella valoracion producto"></i>
                             </div>
                         </div>
                     </div>
@@ -194,15 +194,15 @@
                 </div>
                 <div class="review">
                     <div class="flex gap-2">
-                        <img class="object-cover" src="/student023/shop/assets/images/customers/default.png" alt="" width="50" height="50">
+                        <img class="object-cover" src="/student023/shop/assets/images/customers/default.png" alt="foto perfil usuario" width="50" height="50">
                         <div>
                             <h3 class="text-lg font-latobold">Guitarra muy buena por el precio</h3>
                             <div>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-solid fa-star" aria-label="estrella valoracion producto"></i>
+                                <i class="fa-regular fa-star" aria-label="estrella valoracion producto"></i>
                             </div>
                         </div>
                     </div>
@@ -257,9 +257,9 @@
                      sm:row-start-2 sm:p-[10px_0_20px_10px]
                      lg:row-start-2 lg:row-end-3 lg:pl-2.5 lg:py-5">
 
-            <i class="fa-brands fa-x-twitter fa-xl"></i>
-            <i class="fa-brands fa-instagram fa-xl"></i>
-            <i class="fa-brands fa-youtube fa-xl"></i>
+            <i class="fa-brands fa-x-twitter fa-xl" aria-label="icono twitter"></i>
+            <i class="fa-brands fa-instagram fa-xl" aria-label="icono instagram"></i>
+            <i class="fa-brands fa-youtube fa-xl" aria-label="icono youtube"></i>
         </div>
 
         <hr class="text-text sm:hidden">
@@ -270,12 +270,12 @@
             <h2 class="titol-footer">Métodos de pago</h2>
 
             <div class="flex gap-2 h-7 pl-5 sm:p-0 sm:flex-wrap">
-                <img src="/student023/shop/assets/images/payment_methods/visa.png">
-                <img src="/student023/shop/assets/images/payment_methods/mastercard.png" class="lg:pl-0">
-                <img src="/student023/shop/assets/images/payment_methods/google.png">
-                <img src="/student023/shop/assets/images/payment_methods/paypal.png">
-                <img src="/student023/shop/assets/images/payment_methods/amex.png">
-                <img src="/student023/shop/assets/images/payment_methods/apple.png">
+                <img src="/student023/shop/assets/images/payment_methods/visa.png" alt="imagen visa">
+                <img src="/student023/shop/assets/images/payment_methods/mastercard.png" alt="imagen mastercard" class="lg:pl-0">
+                <img src="/student023/shop/assets/images/payment_methods/google.png" alt="imagen google pay">
+                <img src="/student023/shop/assets/images/payment_methods/paypal.png" alt="imagen paypal">
+                <img src="/student023/shop/assets/images/payment_methods/amex.png" alt="imagen american express">
+                <img src="/student023/shop/assets/images/payment_methods/apple.png" alt="imagen apple pay">
             </div>
         </div>
 
@@ -294,10 +294,10 @@
 
         <small class="text-center text-text pt-[10px] sm:col-span-4 
                       lg:row-start-4 lg:row-end-5 lg:col-span-4">
-            <i class="fa-regular fa-copyright"></i> Riff Store
+            <i class="fa-regular fa-copyright" aria-label="icono copyright"></i> Riff Store
         </small>
     </footer>
-
+    <script src="/student023/shop/js/utils.js"></script>
     <script src="/student023/shop/js/common.js"></script>
     <script src="/student023/shop/js/product_detail.js"></script>
 </body>

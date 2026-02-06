@@ -1,6 +1,6 @@
 :root {
   --primary: #2b2b2b;
-  --secondary: #F0E9E9;
+  --secondary: #f0e9e9;
   --primary-opacity: 43, 43, 43;
   --text: #f0f0f0;
   --accent: #c9a635;
@@ -55,7 +55,7 @@ header {
   z-index: 1000;
 }
 
-img[alt="logo"] {
+img[alt="logo riff store"] {
   width: 30px;
   cursor: pointer;
 }
@@ -75,14 +75,15 @@ nav {
   color: var(--text);
 }
 
-.fa-x {
+header .fa-x {
   display: flex;
   justify-content: end;
   width: calc(100vw - 40px);
   cursor: pointer;
 }
 
-nav a, footer a {
+nav a,
+footer a {
   text-decoration: none;
   color: var(--text);
   font-size: 2rem;
@@ -171,6 +172,100 @@ footer small {
 .container-policies {
   display: flex;
   justify-content: center;
+}
+
+#universal-access-btn {
+  position: fixed;
+  left: 83%;
+  bottom: 2%;
+  color: blue;
+  font-size: 3em;
+  cursor: pointer;
+}
+
+#access-content {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  background-color: var(--primary);
+  padding: 20px 20px;
+  height: 100vh;
+  width: 100vw;
+  bottom: -0%;
+  left: -0%;
+  z-index: 10002;
+  color: var(--text);
+}
+
+#access-content h3 {
+  font-size: 1.5rem;
+  font-family: "LatoBold";
+}
+
+#access-content > div:nth-of-type(1) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#access-content > div:nth-of-type(2) {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  gap: 30px;
+  justify-content: center;
+}
+
+#access-content > div:nth-of-type(2) button {
+  background-color: var(--secondary);
+  width: 160px;
+  height: 100px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#access-content > div:nth-of-type(2) i {
+  font-size: 3em;
+}
+
+#access-content > div:nth-of-type(2) p {
+  font-size: 1.5em;
+}
+
+#access-content > button {
+  padding: 20px 10px;
+  width: 100%;
+  margin-top: 50px;
+  background-color: red;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.5em;
+  font-family: "LatoBold";
+  cursor: pointer;
+}
+
+#icon-close-access {
+  cursor: pointer;
+  font-size: 2em;
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.saturation {
+  filter: saturate(200%);
+}
+
+.active {
+  outline: solid var(--accent);
 }
 
 @media (min-width: 810px) and (max-width: 1090px) {
@@ -270,6 +365,19 @@ footer small {
   footer a {
     padding-left: 0;
   }
+
+  #universal-access-btn {
+    left: 90%;
+    font-size: 4em;
+  }
+
+  #access-content {
+    bottom: 8%;
+    width: 55%;
+    height: initial;
+    border-radius: 20px;
+    left: 40%;
+  }
 }
 
 @media (min-width: 1100px) {
@@ -277,6 +385,7 @@ footer small {
     justify-content: center;
     gap: 70px;
   }
+
   nav {
     background-color: transparent;
     position: initial;
@@ -306,9 +415,12 @@ footer small {
     border-radius: 10px;
     border-color: var(--accent);
     background-color: rgba(var(--primary-opacity), 0.8);
-}
+  }
 
-  .fa-x,
+  #icon-close-menu {
+    display: none;
+  }
+
   .fa-bars {
     display: none;
   }
@@ -325,7 +437,6 @@ footer small {
     width: 800px;
   }
 
-  
   footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -388,5 +499,18 @@ footer small {
 
   footer a {
     padding-left: 0;
+  }
+
+  #universal-access-btn {
+    left: 93%;
+    font-size: 6em;
+  }
+
+  #access-content {
+    bottom: 11%;
+    width: 30%;
+    height: initial;
+    border-radius: 20px;
+    left: 65%;
   }
 }

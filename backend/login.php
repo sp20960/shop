@@ -29,7 +29,8 @@ if (isset($_SESSION['user'])){
 
     <i class="fa-solid fa-bars fa-2xl icon lg:hidden!"></i>
 
-    <img src="/student023/shop/assets/images/brand/logo_claro.png" alt="logo" class="w-8 cursor-pointer">
+    <a href="../index.html"><img src="../assets/images/brand/logo_claro.png" alt="logo riff store" class="w-8 cursor-pointer"></a>
+
 
     <nav class="nav-mobile
                     lg:bg-transparent lg:static lg:flex lg:flex-row lg:gap-10 lg:p-0 
@@ -39,7 +40,7 @@ if (isset($_SESSION['user'])){
         <i class="fa-solid fa-x fa-2xl cursor-pointer lg:hidden!"></i>
       </div>
 
-      <a href="" class="link sm:text-5xl lg:text-xl">Inicio</a>
+      <a href="../index.html" class="link sm:text-5xl lg:text-xl">Inicio</a>
 
       <p id="dropdown-menu-caret"
         class="text-[2rem] cursor-pointer font-latobold sm:text-5xl lg:text-xl lg:relative">
@@ -63,7 +64,7 @@ if (isset($_SESSION['user'])){
     </form>
 
     <a href="../backend/login.php"><i class="fa-solid fa-circle-user fa-2xl icon"></i></a>
-    <a href="../backend/customer/my_shopping_cart.php"><i class="fa-solid fa-cart-shopping fa-2xl icon"></i></a>
+    <a href="../views/shopping_cart.html"><i class="fa-solid fa-cart-shopping fa-2xl icon"></i></a>
   </header>
   <main class="h-screen flex justify-center items-center bg-secondary">
     <div class="bg-primary rounded-2xl shadow-2xl flex flex-col justify-center px-6 py-12 sm:w-[60%] lg:w-150 lg:px-10">

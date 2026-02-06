@@ -1,6 +1,8 @@
 {
     "require": {
         "vlucas/phpdotenv": "^5.6",
-        "oittaa/uuid": "^1.10"
+        "oittaa/uuid": "^1.10",
+        "phpmailer/phpmailer": "^7.0",
+        "ramsey/uuid": "^4.9"
     }
 }
