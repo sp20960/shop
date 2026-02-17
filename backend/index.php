@@ -41,5 +41,6 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
     <script src="../js/utils.js"></script>
+    <script src="../js/backend_common.js"></script>
     <script type="module" src="../js/backend_index.js"></script>
     <?php require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/footer.php'); ?>

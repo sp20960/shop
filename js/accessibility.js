@@ -4,6 +4,8 @@ $(() => {
 
   if (!settings) {
     settings = {
+      dark: false,
+      letterSpacing: 0,
       lineHeight: 1.5,
       fontSize: 16,
       grayScale: false,
@@ -36,6 +38,16 @@ $(() => {
       settings.lineHeight,
       "important"
     );
+
+    document.documentElement.style.setProperty(
+      "letter-spacing",
+      settings.letterSpacing + "px",
+      "important"
+    );
+
+    if(settings.dark){
+      $('body').addClass('dark');
+    }
 
     $("#access-saturation").toggleClass("active", settings.saturation);
     $("#access-grayscale").toggleClass("active", settings.grayScale);
@@ -95,6 +107,38 @@ $(() => {
     saveSettings();
   });
 
+  $('#access-minus-spacing').on('click', () => {
+    settings.letterSpacing -= 0.1;
+    document.documentElement.style.setProperty(
+      "letter-spacing",
+      settings.letterSpacing + "px",
+      "important"
+    );
+    saveSettings();
+  });
+
+  $('#access-plus-spacing').on('click', () => {
+    settings.letterSpacing += 0.1;
+    document.documentElement.style.setProperty(
+      "letter-spacing",
+      settings.letterSpacing + "px",
+      "important"
+    );
+    saveSettings();
+  });
+
+  $('#access-dark').on('click', () => {
+    settings.dark = true;
+    $('body').addClass('dark');
+    saveSettings();
+  })
+
+  $('#access-light').on('click', () => {
+    settings.dark = false;
+    $('body').removeClass('dark');
+    saveSettings();
+  })
+
   // Filters
   $('#access-saturation').on('click', function () {
     settings.saturation = !settings.saturation;
@@ -113,6 +157,8 @@ $(() => {
   //Reset button
   $('#access-reset').on('click', () => {
     settings = {
+      dark: false,
+      letterSpacing: 0,
       lineHeight: 1.5,
       fontSize: 16,
       grayScale: false,
@@ -121,6 +167,7 @@ $(() => {
 
     localStorage.removeItem("settings");
 
+    $('body').removeClass('dark');
     $("html").removeAttr("style").css("filter", "");
     $('#access-content .active').removeClass('active');
   });

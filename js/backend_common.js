@@ -10,13 +10,10 @@ addEventListener('DOMContentLoaded', () => {
     })
 
     languageSelect?.addEventListener('change', () => {
-      fetchDataPost('/student023/shop/backend/endpoints/language_cookie.php', 
-                    'language=' + (languageSelect.value), false);
+      fetchDataPost(`/student023/shop/backend/endpoints/language_cookie.php?language=${languageSelect.value}`, false);
     });
 
     profile.addEventListener('click', () => {
-        console.log("object");
-        console.log(profileDropdownContent);
         if(profileDropdownContent.classList.contains('hidden')){
             profileDropdownContent.classList.remove('hidden')
             profileDropdownContent.classList.add('flex');

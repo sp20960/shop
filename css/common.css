@@ -17,6 +17,11 @@
   src: url("../assets/fonts/Lato-Bold.ttf");
 }
 
+body.dark{
+  background-color: #121212 !important;
+  color: #ffffff !important;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -53,6 +58,12 @@ header {
   justify-content: space-between;
   position: fixed;
   z-index: 1000;
+}
+
+header > a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 img[alt="logo riff store"] {
@@ -243,7 +254,7 @@ footer small {
   padding: 20px 10px;
   width: 100%;
   margin-top: 50px;
-  background-color: red;
+  background-color: var(--accent);
   border: none;
   border-radius: 10px;
   font-size: 1.5em;

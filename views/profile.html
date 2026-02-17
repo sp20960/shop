@@ -13,7 +13,7 @@
 <body>
     <header class="header sm:justify-evenly lg:justify-center lg:gap-[70px]">
 
-        <i class="fa-solid fa-bars fa-2xl icon lg:hidden!" aria-label="icono menu hamburguesa"></i>
+        <i class="fa-solid fa-bars fa-2xl icon lg:hidden!" id="icon-close-menu" aria-label="icono menu hamburguesa"></i>
 
         <a href="../index.html"><img src="../assets/images/brand/logo_claro.png" alt="logo riff store" class="w-8 cursor-pointer"></a>
 
@@ -48,8 +48,8 @@
             <i class="fa-solid fa-search fa-xl absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2"></i>
         </form>
 
-       <a href="../backend/login.php"><i class="fa-solid fa-circle-user fa-2xl icon" aria-label="icono usuario"></i></a>
-        <a href="./shopping_cart.html"><i class="fa-solid fa-cart-shopping fa-2xl icon" aria-label="icono carrito de compra"></i></a>
+       <a href="../backend/login.php" aria-label="icono usuario"><i class="fa-solid fa-circle-user fa-2xl icon" ></i></a>
+        <a href="./shopping_cart.html" aria-label="icono carrito de compra"><i class="fa-solid fa-cart-shopping fa-2xl icon" ></i></a>
     </header>
 
     <main class="flex flex-col pt-[115px] lg:flex-row lg:items-center lg:pt-[87px]">
@@ -284,7 +284,60 @@
                       lg:row-start-4 lg:row-end-5 lg:col-span-4">
             <i class="fa-regular fa-copyright"></i> Riff Store
         </small>
+        <i class="fa-solid fa-universal-access fixed left-[83%] bottom-[2%] text-blue-700 text-5xl cursor-pointer sm:left-[90%] sm:text-6xl lg:left-[93%] lg:text-8xl" id="universal-access-btn"></i>
+        <div id="access-content" class="hidden flex-col fixed bg-primary px-5 py-5 h-screen w-screen bottom-0 left-0 z-1002 text-text sm:h-220 sm:bottom-[13%] sm:w-[55%] sm:rounded-2xl sm:left-[40%] lg:bottom-[11%] lg:w-[30%] lg:left-[65%] lg:h-210">
+            <div class="flex justify-between items-center">
+              <h3 class="text-2xl font-latobold">Opciones de accesibildad</h3>
+              <i class="fa-solid fa-x text-3xl cursor-pointer" id="icon-close-access"></i>
+            </div>
+            
+            <div class="flex flex-wrap pt-7 justify-center gap-7">
+              <button id="access-plus-text" class="access-button">
+                <i class="fa-solid fa-text-height text-4xl"></i>
+                <p class="text-2xl">Maximizar texto</p>
+              </button>
+              <button id="access-minus-text" class="access-button">
+                <i class="fa-solid fa-text-height text-4xl"></i>
+                <p class="text-2xl">Minimizar texto</p>
+              </button>
+              <button id="access-plus-line-height" class="access-button">
+                <i class="fa-solid fa-plus text-4xl"></i>
+                <p class="text-2xl">Maximizar interlineado</p>
+              </button>
+              <button id="access-minus-line-height" class="access-button">
+                <i class="fa-solid fa-minus text-4xl"></i>
+                <p class="text-2xl">Minimizar interlineado</p>
+              </button>
+              <button id="access-plus-spacing" class="access-button">
+                <i class="fa-solid fa-text-width text-4xl"></i>
+                <p class="text-2xl">Maximizar espaciado</p>
+              </button>
+              <button id="access-minus-spacing" class="access-button">
+                <i class="fa-solid fa-text-width text-4xl"></i>
+                <p class="text-2xl">Minimizar espaciado</p>
+              </button>
+              <button id="access-saturation" class="access-button">
+                <i class="fa-solid fa-circle-half-stroke text-4xl"></i>
+                <p class="text-2xl">Saturación</p>
+              </button>
+              <button id="access-grayscale" class="access-button">
+                <i class="fa-solid fa-fill text-4xl"></i>
+                <p class="text-2xl">Escala de grises</p>
+              </button>
+              <button id="access-light" class="access-button">
+                <i class="fa-solid fa-sun text-4xl"></i>
+                <p class="text-2xl">Modo claro</p>
+              </button>
+              <button id="access-dark" class="access-button">
+                <i class="fa-solid fa-moon text-4xl"></i>
+                <p class="text-2xl">Modo oscuro</p>
+              </button>
+            </div>
+            <button id="access-reset" class="px-5 py-3 w-full mt-11 bg-accent border-none rounded-lg text-2xl font-latobold text-black cursor-pointer">Resetear valores por defecto</button>
+        </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+    <script src="../js/accessibility.js"></script>
     <script src="../js/common.js"></script>
 </body>
 </html>

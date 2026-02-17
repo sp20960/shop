@@ -34,12 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
 
         <div class="flex gap-2 mt-4">
-            <button class="px-4 py-2 rounded-lg bg-gray-600 text-white hover:bg-gray-700 transition">
+            <a href="orders.php?o=${order.orderNumber}" class="px-4 py-2 rounded-lg bg-gray-600 text-white hover:bg-gray-700 transition">
                 Ver
-            </button>
-            <button class="px-4 py-2 rounded-lg bg-accent text-white hover:brightness-80 transition">
-                Editar
-            </button>
+            </a>
         </div>
     </div>
         `

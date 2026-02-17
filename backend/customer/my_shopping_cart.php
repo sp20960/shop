@@ -48,7 +48,7 @@ $_SESSION['user']['insertOrder'] = true;
           <p class="text-text">Todos los precios incluyen <span class="font-bold">IVA</span></p>
         </div>
         <?php if (isset($products[0]['productId'])): ?>
-          <form action="../checkout/tpv.php" method="POST">
+          <form action="../checkout/address.php" method="POST">
             <button type="submit" name="submit" class="bg-btn rounded-md py-3 px-10 font-bold text-text cursor-pointer">IR A CAJA<i class="fa-solid fa-arrow-right"></i></button>
           </form>
         <?php else: ?>

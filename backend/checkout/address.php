@@ -1,8 +1,6 @@
 <?php 
-session_start();
-
-$_SESSION['user']['insertOrder'] = true;
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/security/check_session.php');
+$_SESSION['user']['insertOrder'] = true;
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/guest_header.php'); 
 require($_SERVER['DOCUMENT_ROOT'] . '/student023/shop/backend/includes/customers_functions.php'); 
 $customerId = $_SESSION['user']['customerId'];

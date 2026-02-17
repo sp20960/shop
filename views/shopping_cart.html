@@ -22,7 +22,7 @@
         <nav>
 
             <div>
-                <i class="fa-solid fa-x fa-2xl" aria-label="icono cerrar menu"></i>
+                <i class="fa-solid fa-x fa-2xl" id="icon-close-menu" aria-label="icono cerrar menu"></i>
             </div>
 
             <a href="../index.html">Inicio</a>
@@ -45,9 +45,9 @@
                     <i class="fa-solid fa-search fa-xl" aria-label="icono busqueda"></i>
                     </form>
 
-                    <a href="../backend/login.php"><i class="fa-solid fa-circle-user fa-2xl" aria-label="icono usuario"></i></a>
-                    <a href="./shopping_cart.html"><i
-                            class="fa-solid fa-cart-shopping fa-2xl" aria-label="icono carrito de compra"></i></a>
+                    <a href="../backend/login.php" aria-label="icono usuario"><i class="fa-solid fa-circle-user fa-2xl" ></i></a>
+                    <a href="./shopping_cart.html" aria-label="icono carrito de compra"><i
+                            class="fa-solid fa-cart-shopping fa-2xl" ></i></a>
     </header>
 
     <main>
@@ -140,9 +140,61 @@
         <small>
             <i class="fa-regular fa-copyright" aria-label="icono copyright"></i> Riff Store
         </small>
+        <i class="fa-solid fa-universal-access" id="universal-access-btn"></i>
+        <div id="access-content">
+            <div>
+              <h3>Opciones de accesibildad</h3>
+              <i class="fa-solid fa-x" id="icon-close-access"></i>
+            </div>
+            
+            <div>
+              <button id="access-plus-text">
+                <i class="fa-solid fa-text-height"></i>
+                <p>Maximizar texto</p>
+              </button>
+              <button id="access-minus-text">
+                <i class="fa-solid fa-text-height"></i>
+                <p>Minimizar texto</p>
+              </button>
+              <button id="access-plus-line-height">
+                <i class="fa-solid fa-plus"></i>
+                <p>Maximizar interlineado</p>
+              </button>
+              <button id="access-minus-line-height">
+                <i class="fa-solid fa-minus"></i>
+                <p>Minimizar interlineado</p>
+              </button>
+              <button id="access-plus-spacing">
+                <i class="fa-solid fa-text-width"></i>
+                <p>Maximizar espaciado</p>
+              </button>
+              <button id="access-minus-spacing">
+                <i class="fa-solid fa-text-width"></i>
+                <p>Minimizar espaciado</p>
+              </button>
+              <button id="access-saturation">
+                <i class="fa-solid fa-circle-half-stroke"></i>
+                <p>Saturación</p>
+              </button>
+              <button id="access-grayscale">
+                <i class="fa-solid fa-fill"></i>
+                <p>Escala de grises</p>
+              </button>
+              <button id="access-light">
+                <i class="fa-solid fa-sun"></i>
+                <p>Modo claro</p>
+              </button>
+              <button id="access-dark">
+                <i class="fa-solid fa-moon"></i>
+                <p>Modo oscuro</p>
+              </button>
+            </div>
+            <button id="access-reset">Resetear valores por defecto</button>
+        </div>
     </footer>
-
+    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
     <script src="../js/utils.js"></script>
+    <script src="../js/accessibility.js"></script>
     <script src="/student023/shop/js/common.js"></script>
     <script src="../js/shopping_cart.js"></script>
 </body>

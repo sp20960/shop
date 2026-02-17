@@ -17,12 +17,9 @@ function showOrder($order){
     </div>
 
     <div class="flex gap-2 mt-4">
-        <button class="px-4 py-2 rounded-lg bg-gray-600 text-white hover:bg-gray-700 transition">
+        <a href="orders.php?o='.$order['orderNumber'].'" class="px-4 py-2 rounded-lg bg-accent text-white hover:bg-gray-700 transition">
             Ver
-        </button>
-        <button class="px-4 py-2 rounded-lg bg-accent text-white hover:brightness-80 transition">
-            Editar
-        </button>
+        </a>
     </div>
 
 </div>';
@@ -65,10 +62,19 @@ function apiOrderInsert($orderNumber) {
       $response = curl_exec($ch);
     }
   endforeach;
-
-
 }
 
+function returnOrderInfo($orderNumber){
+  $sql = "SELECT *
+          FROM `023_orders_view`
+          WHERE orderNumber = '$orderNumber';";
 
+  require $_SERVER['DOCUMENT_ROOT'].'/student023/shop/backend/config/db_connect.php';
+
+  
+
+  return mysqli_fetch_all(mysqli_query($connect, $sql), MYSQLI_ASSOC)[0];
+  mysqli_close($connect);
+} 
 ?>
 

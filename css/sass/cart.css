@@ -14,6 +14,15 @@
   font-family: "LatoBold";
 }
 
+body.dark {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+}
+
+.active {
+  outline: solid var(--accent);
+}
+
 header {
   background-color: #2b2b2b;
   padding: 20px;
@@ -34,6 +43,11 @@ header {
     justify-content: center;
     gap: 70px;
   }
+}
+header > a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 header > i {
   color: #f0f0f0;
@@ -195,7 +209,7 @@ footer {
   }
 }
 @media (min-width: 810px) and (max-width: 1090px) {
-  footer div:nth-of-type(1) {
+  footer > div:nth-of-type(1) {
     grid-column-start: 1;
     display: flex;
     flex-direction: column;
@@ -203,54 +217,54 @@ footer {
   }
 }
 @media (min-width: 1100px) {
-  footer div:nth-of-type(1) {
+  footer > div:nth-of-type(1) {
     grid-column-start: 1;
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
 }
-footer div:nth-of-type(1) h2 {
+footer > div:nth-of-type(1) h2 {
   color: #f0f0f0;
   padding: 5px 0 5px 10px;
   font-family: LatoBold, "sans-serif";
   font-size: 1.2rem;
 }
 @media (min-width: 810px) and (max-width: 1090px) {
-  footer div:nth-of-type(1) h2 {
+  footer > div:nth-of-type(1) h2 {
     font-size: 1.4rem;
     padding: 0;
   }
 }
 @media (min-width: 1100px) {
-  footer div:nth-of-type(1) h2 {
+  footer > div:nth-of-type(1) h2 {
     font-size: 1.4rem;
     padding: 0;
   }
 }
 @media (min-width: 810px) and (max-width: 1090px) {
-  footer div:nth-of-type(1) hr {
+  footer > div:nth-of-type(1) hr {
     display: none;
   }
 }
 @media (min-width: 1100px) {
-  footer div:nth-of-type(1) hr {
+  footer > div:nth-of-type(1) hr {
     display: none;
   }
 }
-footer div:nth-of-type(1) a {
+footer > div:nth-of-type(1) a {
   font-size: 1rem;
   padding-left: 20px;
   font-family: LatoRegular, "sans-serif";
   color: #f0f0f0;
 }
 @media (min-width: 810px) and (max-width: 1090px) {
-  footer div:nth-of-type(1) a {
+  footer > div:nth-of-type(1) a {
     padding-left: 0;
   }
 }
 @media (min-width: 1100px) {
-  footer div:nth-of-type(1) a {
+  footer > div:nth-of-type(1) a {
     padding-left: 0;
   }
 }
@@ -265,7 +279,7 @@ footer div:nth-of-type(1) a {
   }
 }
 @media (min-width: 810px) and (max-width: 1090px) {
-  footer div:nth-of-type(2) {
+  footer > div:nth-of-type(2) {
     grid-column-start: 2;
     display: flex;
     flex-direction: column;
@@ -273,54 +287,54 @@ footer div:nth-of-type(1) a {
   }
 }
 @media (min-width: 1100px) {
-  footer div:nth-of-type(2) {
+  footer > div:nth-of-type(2) {
     grid-column-start: 2;
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
 }
-footer div:nth-of-type(2) h2 {
+footer > div:nth-of-type(2) h2 {
   color: #f0f0f0;
   padding: 5px 0 5px 10px;
   font-family: LatoBold, "sans-serif";
   font-size: 1.2rem;
 }
 @media (min-width: 810px) and (max-width: 1090px) {
-  footer div:nth-of-type(2) h2 {
+  footer > div:nth-of-type(2) h2 {
     font-size: 1.4rem;
     padding: 0;
   }
 }
 @media (min-width: 1100px) {
-  footer div:nth-of-type(2) h2 {
+  footer > div:nth-of-type(2) h2 {
     font-size: 1.4rem;
     padding: 0;
   }
 }
 @media (min-width: 810px) and (max-width: 1090px) {
-  footer div:nth-of-type(2) hr {
+  footer > div:nth-of-type(2) hr {
     display: none;
   }
 }
 @media (min-width: 1100px) {
-  footer div:nth-of-type(2) hr {
+  footer > div:nth-of-type(2) hr {
     display: none;
   }
 }
-footer div:nth-of-type(2) a {
+footer > div:nth-of-type(2) a {
   font-size: 1rem;
   padding-left: 20px;
   font-family: LatoRegular, "sans-serif";
   color: #f0f0f0;
 }
 @media (min-width: 810px) and (max-width: 1090px) {
-  footer div:nth-of-type(2) a {
+  footer > div:nth-of-type(2) a {
     padding-left: 0;
   }
 }
 @media (min-width: 1100px) {
-  footer div:nth-of-type(2) a {
+  footer > div:nth-of-type(2) a {
     padding-left: 0;
   }
 }
@@ -450,6 +464,108 @@ footer small {
     grid-column: 1/span 4;
     grid-row: 4;
   }
+}
+footer #universal-access-btn {
+  position: fixed;
+  left: 83%;
+  bottom: 2%;
+  color: blue;
+  font-size: 3em;
+  cursor: pointer;
+}
+@media (min-width: 810px) and (max-width: 1090px) {
+  footer #universal-access-btn {
+    left: 90%;
+    font-size: 4em;
+  }
+}
+@media (min-width: 1100px) {
+  footer #universal-access-btn {
+    left: 93%;
+    font-size: 6em;
+  }
+}
+footer #access-content {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  background-color: #2b2b2b;
+  padding: 20px 20px;
+  height: 100vh;
+  width: 100vw;
+  bottom: 0%;
+  left: 0%;
+  z-index: 10002;
+  color: #f0f0f0;
+}
+@media (min-width: 810px) and (max-width: 1090px) {
+  footer #access-content {
+    bottom: 8%;
+    width: 55%;
+    height: initial;
+    border-radius: 20px;
+    left: 40%;
+  }
+}
+@media (min-width: 1100px) {
+  footer #access-content {
+    bottom: 11%;
+    width: 30%;
+    height: initial;
+    border-radius: 20px;
+    left: 65%;
+  }
+}
+footer #access-content h3 {
+  font-size: 1.5rem;
+  font-family: LatoBold, "sans-serif";
+}
+footer #access-content > div:nth-of-type(1) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer #access-content > div:nth-of-type(1) i {
+  cursor: pointer;
+  font-size: 2em;
+}
+footer #access-content > div:nth-of-type(2) {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  gap: 30px;
+  justify-content: center;
+}
+footer #access-content > div:nth-of-type(2) button {
+  background-color: #F0E9E9;
+  width: 160px;
+  height: 100px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+footer #access-content > div:nth-of-type(2) i {
+  font-size: 3em;
+}
+footer #access-content > div:nth-of-type(2) p {
+  font-size: 1.5em;
+}
+footer #access-content > button {
+  padding: 20px 10px;
+  width: 100%;
+  margin-top: 50px;
+  background-color: #c9a635;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.5em;
+  font-family: "LatoBold";
+  cursor: pointer;
 }
 
 main {
